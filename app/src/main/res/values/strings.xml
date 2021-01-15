@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Oculess</string>
+
+    <string name="is_enabled">Oculus Companion Server is enabled!</string>
+    <string name="disable_companion">DISABLE COMPANION</string>
+    <string name="is_disabled">Oculus Companion Server is disabled!</string>
+    <string name="enable_companion">ENABLE COMPANION</string>
+
+    <string name="title">Important Info</string>
+    <string name="message">Please restart after the first time!\nRepeat this step after every restart!</string>
+    <string name="ok">Ok</string>
+    <string name="cancel">Cancel</string>
+</resources>

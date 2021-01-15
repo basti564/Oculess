@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Oculess</string>
+    <string name="disable_companion">BEGLEITER DEAKTIVIEREN</string>
+    <string name="enable_companion">BEGLEITER AKTIVIEREN</string>
+    <string name="title">Wichtige Information</string>
+    <string name="ok">Ok</string>
+    <string name="cancel">Abbrechen</string>
+    <string name="message">Bitte starten Sie nach dem ersten Mal neu!\nWiederholen Sie den Schritt nach jedem Neustart!</string>
+    <string name="is_disabled">Oculus Begleit-Server ist deaktiviert!</string>
+    <string name="is_enabled">Oculus Begleit-Server ist aktiviert!</string>
+</resources>
