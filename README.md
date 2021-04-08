@@ -19,3 +19,4 @@
 ```
 1. Run this command ```adb shell dpm set-device-owner com.bos.oculess/.DevAdminReceiver```
 2. Click on "DISABLE TELEMETRY" in the app
+3. Choose "DISABLE TELEMETRY"
