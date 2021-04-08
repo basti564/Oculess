@@ -7,6 +7,11 @@
     <string name="ok">Ok</string>
     <string name="cancel">Abbrechen</string>
     <string name="message">Bitte starten Sie nach dem ersten Mal neu!\nWiederholen Sie den Schritt nach jedem Neustart!</string>
+    <string name="message2">Der Geräte Besitzer wurde nicht festgelegt!</string>
+    <string name="message3">Wie möchten sie fortfahren?</string>
     <string name="is_disabled">Oculus Begleit-Server ist deaktiviert!</string>
     <string name="is_enabled">Oculus Begleit-Server ist aktiviert!</string>
+    <string name="telemetry">TELEMETRIE</string>
+    <string name="disable">Telemetrie Deaktivieren</string>
+    <string name="enable">Telemetrie Aktivieren</string>
 </resources>
