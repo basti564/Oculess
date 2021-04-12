@@ -7,6 +7,7 @@
 ## Tutorial
 
 ### Remove Account
+Video tutorial: https://www.youtube.com/watch?v=vIwUvtxd2-U
 1. Click on "DISABLE COMPANION"
 2. Click "OK"
 3. Choose “Companion Server” from the List
@@ -14,6 +15,7 @@
 5. Restart your Quest
 
 ### Disable Telemetry
+Video tutorial: https://www.youtube.com/watch?v=ArXk_hob4RE
 ```diff 
 !Warning! You won't be able to remove this app without a factory reset after running the following command
 ```
