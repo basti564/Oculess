@@ -14,8 +14,7 @@ Video tutorial: https://www.youtube.com/watch?v=vIwUvtxd2-U
 4. Click “Deactivate this device admin app”
 5. Restart your Quest
 
-### Disable Telemetry
-[works on v29 and before v28]  
+### Disable Telemetry [works on v29 and before v28]
 Video tutorial: https://www.youtube.com/watch?v=ArXk_hob4RE
 ```diff 
 !Warning! You won't be able to remove this app without a factory reset after running the following command
