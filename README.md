@@ -20,5 +20,6 @@ Video tutorial: https://www.youtube.com/watch?v=ArXk_hob4RE
 !Warning! You won't be able to remove this app without a factory reset after running the following command
 ```
 1. Run this command ```adb shell dpm set-device-owner com.bos.oculess/.DevAdminReceiver```
-2. Click on "DISABLE TELEMETRY" in the app
-3. Choose "DISABLE TELEMETRY"
+2. If the command doesn't work do the [Remove Account](https://github.com/basti564/Oculess#remove-account) section first and tepeat step 1.
+3. Click on "DISABLE TELEMETRY" in the app
+4. Choose "DISABLE TELEMETRY"
