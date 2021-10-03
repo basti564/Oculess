@@ -23,8 +23,6 @@
                 android:resource="@xml/device_admin" />
         </receiver>
 
-        <activity android:name=".TelemetryActivity" />
-
         <meta-data
             android:name="com.oculus.supportedDevices"
             android:value="quest|quest2" />
