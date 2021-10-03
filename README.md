@@ -19,7 +19,7 @@
 ### Disable Telemetry
 Video tutorial: https://www.youtube.com/watch?v=ArXk_hob4RE
 1. Download and install the latest apk of from the [releases tab](https://github.com/basti564/Oculess/releases/) on your Quest
-2. Follow the steps in [Remove Accounts](https://github.com/basti564/Oculess#remove-accounts) section first and repeat step 1.
+2. Follow the steps in [Remove Accounts](https://github.com/basti564/Oculess#remove-accounts) section first.
 ```diff 
 !Warning! You won't be able to remove this app without a factory reset after running the following command
 ```
@@ -29,7 +29,7 @@ Video tutorial: https://www.youtube.com/watch?v=ArXk_hob4RE
 
 ### Disable Updates
 1. Download and install the latest apk of from the [releases tab](https://github.com/basti564/Oculess/releases/) on your Quest
-2. Follow the steps in [Remove Accounts](https://github.com/basti564/Oculess#remove-accounts) section first and repeat step 1.
+2. Follow the steps in [Remove Accounts](https://github.com/basti564/Oculess#remove-accounts) section first.
 ```diff 
 !Warning! You won't be able to remove this app without a factory reset after running the following command
 ```
