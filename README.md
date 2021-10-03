@@ -24,7 +24,7 @@ Video tutorial: https://www.youtube.com/watch?v=ArXk_hob4RE
 !Warning! You won't be able to remove this app without a factory reset after running the following command
 ```
 3. Run this command (if you haven't before) ```adb shell dpm set-device-owner com.bos.oculess/.DevAdminReceiver```
-4. Click on "DISABLE TELEMETRY" in the app
+4. Click on "TELEMETRY" in the app
 5. Choose "DISABLE TELEMETRY"
 
 ### Disable Updates
