@@ -1,7 +1,7 @@
 # Oculess
 
 ## Features
-- (Remporarly) Remove Oculus / FaceBook account
+- (Temporarly/Partially) Remove Oculus / FaceBook account
 - (Fully) Log Out OF Oculus / FaceBook account (aka. Disable Oculus Companion)
 - Disable telemetry
 - Disable Updates
