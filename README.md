@@ -45,3 +45,6 @@ Video tutorial: https://www.youtube.com/watch?v=ArXk_hob4RE
 ```
 3. Run this command (if you haven't before) ```adb shell dpm set-device-owner com.bos.oculess/.DevAdminReceiver```
 4. Click on "DISABLE UPDATES" in the app
+
+## Screenshot
+![Screenshot](https://user-images.githubusercontent.com/34898868/135829932-f043a990-3fdc-433e-8eb4-e6f34d997e52.png)
