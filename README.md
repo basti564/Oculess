@@ -1,8 +1,8 @@
 # Oculess
 
 ## Features
-- Remove Oculus / FaceBook account
-- Disable Oculus Companion
+- (Remporarly) Remove Oculus / FaceBook account
+- (Fully) Log Out OF Oculus / FaceBook account (aka. Disable Oculus Companion)
 - Disable telemetry
 - Disable Updates
 
@@ -29,7 +29,7 @@ Video tutorial: https://www.youtube.com/watch?v=vIwUvtxd2-U
 ### Disable Telemetry
 Video tutorial: https://www.youtube.com/watch?v=ArXk_hob4RE
 1. Download and install the latest apk of from the [releases tab](https://github.com/basti564/Oculess/releases/) on your Quest
-2. Follow the steps in [Remove Accounts](https://github.com/basti564/Oculess#remove-accounts) section first.
+2. Follow the steps in [Remove Accounts](https://github.com/basti564/Oculess#remove-accounts-temporary) section first.
 ```diff 
 !Warning! You won't be able to remove this app without a factory reset after running the following command
 ```
@@ -39,7 +39,7 @@ Video tutorial: https://www.youtube.com/watch?v=ArXk_hob4RE
 
 ### Disable Updates
 1. Download and install the latest apk of from the [releases tab](https://github.com/basti564/Oculess/releases/) on your Quest
-2. Follow the steps in [Remove Accounts](https://github.com/basti564/Oculess#remove-accounts) section first.
+2. Follow the steps in [Remove Accounts](https://github.com/basti564/Oculess#remove-accounts-temporary) section first.
 ```diff 
 !Warning! You won't be able to remove this app without a factory reset after running the following command
 ```
