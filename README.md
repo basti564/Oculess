@@ -9,6 +9,8 @@
 ## Tutorial
 
 ### Full Account Logout + Disable Most FB Stuff (Disable Device Companion)
+Text tutorial: https://basti564.github.io/Quest-Account-Logout/
+
 Video tutorial: https://www.youtube.com/watch?v=vIwUvtxd2-U
 1. Download and install the latest apk of from the [releases tab](https://github.com/basti564/Oculess/releases/) on your Quest
 2. Click on "DISABLE COMPANION"
@@ -19,6 +21,8 @@ Video tutorial: https://www.youtube.com/watch?v=vIwUvtxd2-U
 (If you want your account back just restart your Quest and connect with the Oculus Phone App)
 
 ### Disable Telemetry
+Text tutorial: https://basti564.github.io/Disable-Telemetry/
+
 Video tutorial: https://www.youtube.com/watch?v=ArXk_hob4RE
 1. Download and install the latest apk of from the [releases tab](https://github.com/basti564/Oculess/releases/) on your Quest
 2. Follow the steps in [Remove Accounts](https://github.com/basti564/Oculess#remove-accounts-temporary) section first.
