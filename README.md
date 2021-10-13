@@ -1,5 +1,5 @@
 # Oculess
-
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/R6R1657BK)
 ## Features
 - (Temporarily/Partially) Remove Oculus / FaceBook account (only use for disabling updates and telemetry)
 - (Fully) Log Out OF Oculus / FaceBook account (aka. Disable Oculus Companion)
