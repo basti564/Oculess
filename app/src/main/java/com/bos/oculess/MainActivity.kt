@@ -7,6 +7,7 @@ import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.provider.Settings
+import android.util.Log
 import android.view.WindowManager
 import android.widget.Button
 import android.widget.TextView
@@ -16,6 +17,7 @@ import kotlin.concurrent.fixedRateTimer
 
 
 class MainActivity : AppCompatActivity() {
+    val TAG = "MainActivity"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -29,7 +31,13 @@ class MainActivity : AppCompatActivity() {
             "com.oculus.os.logcollector",
             "com.oculus.appsafety"
         )
+        if (getIntent().getExtras() != null && getIntent().getExtras()!!
+                .getBoolean("DISABLE_ADMIN", false)
+        ) {
+            Log.d(TAG, "Disabling device admin")
+            disableDeviceOwner()
 
+        }
         val isEnabledText = findViewById<TextView>(R.id.isEnabledText)
 
         val viewAdminsBtn = findViewById<Button>(R.id.viewAdminsBtn)
@@ -64,10 +72,10 @@ class MainActivity : AppCompatActivity() {
                 if (dpm.isDeviceOwnerApp(packageName)) {
                     if (dpm.isApplicationHidden(
                             deviceAdminReceiverComponentName, updaterName
-                        )) {
+                        )
+                    ) {
                         viewOtaBtn.text = getString(R.string.enable_ota)
-                    }
-                    else {
+                    } else {
                         viewOtaBtn.text = getString(R.string.disable_ota)
                     }
                 } else {
@@ -212,5 +220,12 @@ class MainActivity : AppCompatActivity() {
                 alertDialog.window!!.clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
             }
         }
+    }
+
+    fun disableDeviceOwner() {
+        Log.d(TAG, "disableDeviceOwner: clearDeviceOwnerApp")
+        val packageName = packageName
+        val devicePolicyManager = getSystemService(DEVICE_POLICY_SERVICE) as DevicePolicyManager
+        devicePolicyManager.clearDeviceOwnerApp(packageName)
     }
 }

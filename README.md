@@ -51,5 +51,12 @@ Only use for to [disable telemetry](https://github.com/basti564/Oculess#disable-
 5. Click “REMOVE ACCOUNT”
 (Your accounts should return after like 5 minutes or a restart)
 
+
+### Remove Device Admin (temporary)
+
+Run in terminal : 
+
+```adb shell am start -n com.bos.oculess/.MainActivity --ez DISABLE_ADMIN true```
+
 ## Screenshot
 ![Screenshot](https://user-images.githubusercontent.com/34898868/135829932-f043a990-3fdc-433e-8eb4-e6f34d997e52.png)
