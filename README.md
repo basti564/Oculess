@@ -14,12 +14,11 @@ Text tutorial: https://basti564.github.io/Quest-Account-Logout/
 Video tutorial: https://www.youtube.com/watch?v=vIwUvtxd2-U
 1. Change your system theme to light mode
 2. Download and install the latest apk of from the [releases tab](https://github.com/basti564/Oculess/releases/) on your Quest
-3. Change your system theme to light mode
-4. Click on "DISABLE COMPANION"
-5. Click "OK"
-6. Choose “Companion Server” from the List
-7. Click “Deactivate this device admin app”
-8. Restart your Quest
+3. Click on "DISABLE COMPANION"
+4. Click "OK"
+5. Choose “Companion Server” from the List
+6. Click “Deactivate this device admin app”
+7. Restart your Quest
 (If you want your account back just restart your Quest and connect with the Oculus Phone App)
 
 ### Disable Telemetry
