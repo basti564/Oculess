@@ -5,6 +5,7 @@
 - (Fully) Log Out OF Oculus / FaceBook account (aka. Disable Oculus Companion)
 - Disable telemetry
 - Disable Updates
+- (New) Enable Audio in Background
 
 ## Tutorial
 
@@ -52,5 +53,12 @@ Only use for to [disable telemetry](https://github.com/basti564/Oculess#disable-
 5. Click “REMOVE ACCOUNT”
 (Your accounts should return after like 5 minutes or a restart)
 
+### Enable Background Audio (temporary)
+1. Follow steps 1-3 of "Disable Telemetry" to set device owner. This only needs to be done once.
+2. Click on "ENABLE BACKGROUND AUDIO"
+Apps will now be allowed to play audio in the background, and record audio as if they have been given microphone access.
+Note that apps might still be killed, for example background apps will close when you quit a game. If this happens, reopen the suspended app, not Oculess.
+Setting applies to all apps until the next reboot.
+
 ## Screenshot
-![Screenshot](https://user-images.githubusercontent.com/34898868/135829932-f043a990-3fdc-433e-8eb4-e6f34d997e52.png)
+![Screenshot](https://user-images.githubusercontent.com/12588584/152667664-40db8b5b-1e93-4518-836f-e1de3782a07a.jpg)

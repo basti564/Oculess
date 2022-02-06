@@ -1,18 +1,19 @@
 <resources>
     <string name="app_name">Oculess</string>
+    <string name="app_subtitle">Toolbox for Oculus Quest devices</string>
 
     <string name="is_disabled">Oculus Companion Server is disabled!</string>
     <string name="is_enabled">Oculus Companion Server is enabled!</string>
 
-    <string name="disable_companion">DISABLE COMPANION</string>
-    <string name="enable_companion">ENABLE COMPANION</string>
-    <string name="remove_accounts">REMOVE ACCOUNTS</string>
-    <string name="disable_ota">DISABLE UPDATES</string>
-    <string name="enable_ota">ENABLE UPDATES</string>
-    <string name="telemetry">TELEMETRY</string>
+    <string name="disable_companion">Disable Companion Server</string>
+    <string name="enable_companion">Enable Companion Server</string>
+    <string name="remove_accounts">Remove Accounts</string>
+    <string name="disable_ota">Disable Updates</string>
+    <string name="enable_ota">Enable Updates</string>
+    <string name="telemetry">Enable/Disable Telemetry</string>
 
     <string name="title">Important Info</string>
-    <string name="message0">Please restart after the first time!\nRepeat this step after every restart!</string>
+    <string name="message0">NOTE: This may not work if device owner is set\nPlease restart after the first time!\nRepeat this step after every restart!</string>
     <string name="message1">Please remove *all* the accounts on your Device!\nRepeat this step after every restart!</string>
     <string name="message2">Device Owner has not been set!</string>
     <string name="message3">What would you like to do?</string>
@@ -20,4 +21,6 @@
     <string name="cancel">Cancel</string>
     <string name="disable">Disable Telemetry</string>
     <string name="enable">Enable Telemetry</string>
+    <string name="audio">Enable Background Audio for Installed Apps\n(Must reapply after reboot)</string>
+
 </resources>
