@@ -4,65 +4,141 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fillViewport="true"
+
     tools:context=".MainActivity">
 
+    <View
+        android:id="@+id/view2"
+        android:layout_width="99999dp"
+        android:layout_height="99999dp"
+        android:background="@drawable/windowbg"
+        android:backgroundTint="#D8202020"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/viewOtaBtn"
-        android:layout_width="217dp"
-        android:layout_height="87dp"
+        style="@style/OculusButtonStyle"
+        android:layout_width="450dp"
+        android:layout_height="50dp"
         android:layout_marginTop="12dp"
+        android:background="@drawable/buttonbg"
+        android:backgroundTint="#024abf"
         android:text="@string/disable_ota"
+        app:icon="@android:drawable/ic_popup_sync"
+        app:iconPadding="-25dp"
+        app:iconSize="24dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/viewAccountsBtn" />
 
     <Button
         android:id="@+id/viewTelemetryBtn"
-        android:layout_width="217dp"
-        android:layout_height="87dp"
+        style="@style/OculusButtonStyle"
+        android:layout_width="450dp"
+        android:layout_height="50dp"
         android:layout_marginTop="12dp"
+        android:background="@drawable/buttonbg"
         android:text="@string/telemetry"
+        app:icon="?android:attr/actionModeFindDrawable"
+        app:iconPadding="-27dp"
+        app:iconSize="26dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/viewOtaBtn" />
 
     <TextView
-        android:id="@+id/isEnabledText"
+        android:id="@+id/Title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="52dp"
         android:text="@string/app_name"
-        android:textSize="20sp"
+        android:textColor="@color/white"
+        android:textSize="34sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/viewAdminsBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <TextView
+        android:id="@+id/isEnabledText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toTopOf="@+id/viewAdminsBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/isEnabledText2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="@string/app_subtitle"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="normal"
+        app:layout_constraintBottom_toTopOf="@+id/viewAdminsBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+
+        app:layout_constraintStart_toStartOf="parent" />
+
     <Button
         android:id="@+id/viewAdminsBtn"
-        android:layout_width="217dp"
-        android:layout_height="87dp"
+        style="@style/OculusButtonStyle"
+        android:layout_width="450dp"
+        android:layout_height="50dp"
         android:layout_marginBottom="12dp"
+        android:background="@drawable/buttonbg"
+        android:backgroundTint="@color/ic_banner_background"
+        android:backgroundTintMode="multiply"
         android:text="@string/disable_companion"
+
+        android:typeface="normal"
+        app:icon="?android:attr/alertDialogIcon"
+        app:iconPadding="-25dp"
+        app:iconSize="24dp"
         app:layout_constraintBottom_toTopOf="@+id/viewAccountsBtn"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/viewAccountsBtn"
-        android:layout_width="217dp"
-        android:layout_height="87dp"
-        android:layout_marginBottom="12dp"
+        style="@style/OculusButtonStyle"
+        android:layout_width="450dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/buttonbg"
         android:text="@string/remove_accounts"
+        app:icon="?attr/actionModeShareDrawable"
+        app:iconPadding="-25dp"
+        app:iconSize="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.362" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/viewPermissionsBtn"
+        style="@style/OculusButtonStyle"
+        android:layout_width="450dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/buttonbg"
+        android:text="@string/audio"
+        app:icon="@android:drawable/ic_lock_silent_mode_off"
+        app:iconPadding="-27dp"
+        app:iconSize="29dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/viewTelemetryBtn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

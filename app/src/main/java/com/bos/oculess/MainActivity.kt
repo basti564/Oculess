@@ -1,21 +1,32 @@
 package com.bos.oculess
 
+import android.annotation.SuppressLint
+import android.app.AppOpsManager
 import android.app.admin.DevicePolicyManager
 import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
+import android.content.pm.ApplicationInfo
 import android.graphics.Color
+import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
 import android.view.WindowManager
 import android.widget.Button
 import android.widget.TextView
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.bos.oculess.util.AppOpsUtil
 import kotlin.concurrent.fixedRateTimer
+import android.os.Handler as Handler
 
 
 class MainActivity : AppCompatActivity() {
+    var audioApps: Array<String>? = null
+
+    @SuppressLint("QueryPermissionsNeeded")
+    @RequiresApi(Build.VERSION_CODES.P)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -36,6 +47,7 @@ class MainActivity : AppCompatActivity() {
         val viewAccountsBtn = findViewById<Button>(R.id.viewAccountsBtn)
         val viewOtaBtn = findViewById<Button>(R.id.viewOtaBtn)
         val viewTelemetryBtn = findViewById<Button>(R.id.viewTelemetryBtn)
+        val viewPermissionsBtn = findViewById<Button>(R.id.viewPermissionsBtn)
 
         val dpm = getSystemService(Context.DEVICE_POLICY_SERVICE) as DevicePolicyManager
 
@@ -73,6 +85,38 @@ class MainActivity : AppCompatActivity() {
                 } else {
                     viewOtaBtn.text = getString(R.string.disable_ota)
                 }
+            }
+        }
+
+        viewPermissionsBtn.setOnClickListener {
+            if (dpm.isDeviceOwnerApp(packageName)) {
+                updateAudioPackages()
+
+                // Set recurring task (every 2s)
+                val handler = Handler()
+                val run = object : Runnable {
+                    override fun run() {
+                        handler.postDelayed(this, 2000)
+                        enableBackgroundAudio()
+                    }
+                }
+                handler.post(run)
+
+                viewPermissionsBtn.isEnabled = false
+
+            } else {
+                val builder: AlertDialog.Builder = AlertDialog.Builder(this)
+                builder.setTitle(getString(R.string.title))
+                builder.setMessage(getString(R.string.message2))
+                builder.setPositiveButton(
+                    getString(R.string.ok)
+                ) { dialog, _ ->
+                    dialog.dismiss()
+                }
+                val alertDialog: AlertDialog = builder.create()
+                alertDialog.show()
+                alertDialog.window!!.clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
+
             }
         }
 
@@ -213,4 +257,27 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
+    @RequiresApi(Build.VERSION_CODES.P)
+    fun enableBackgroundAudio() {
+        for (app in audioApps!!) {
+            val info: ApplicationInfo = applicationContext.packageManager.getApplicationInfo(app, 0)
+            // Allow background audio playback
+            AppOpsUtil.setMode(applicationContext, 28, info.uid, app, AppOpsManager.MODE_ALLOWED)
+            // Allow background audio recording (app must have recording permission for this to do anything)
+            AppOpsUtil.setMode(applicationContext, 27, info.uid, app, AppOpsManager.MODE_ALLOWED)
+        }
+    }
+
+    fun updateAudioPackages() {
+        /* Get All Installed Packages for Audio */
+        //getInstalledPackages longer works properly in android 11, but quest is on android 10 so it's fine
+        val packageinfos = applicationContext.packageManager.getInstalledPackages(0)
+        val packageNames = arrayListOf<String>()
+        for (packageinfo in packageinfos) {
+            packageNames.add(packageinfo.packageName)
+        }
+        audioApps = packageNames.toTypedArray()
+    }
 }
+

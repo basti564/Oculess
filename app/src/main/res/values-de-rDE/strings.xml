@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Oculess</string>
+    <string name="app_subtitle">Modifikationstool für Oculus Quest-Geräte</string>
 
     <string name="is_disabled">Oculus Begleit-Server ist deaktiviert!</string>
     <string name="is_enabled">Oculus Begleit-Server ist aktiviert!</string>
 
-    <string name="disable_companion">BEGLEITER DEAKTIVIEREN</string>
-    <string name="enable_companion">BEGLEITER AKTIVIEREN</string>
-    <string name="remove_accounts">ACCOUNTS ENTFERNEN</string>
-    <string name="disable_ota">UPDATES DEAKTIVIEREN</string>
-    <string name="enable_ota">UPDATES AKTIVIEREN</string>
-    <string name="telemetry">TELEMETRIE</string>
+    <string name="disable_companion">Begleiter Aktivieren</string>
+    <string name="enable_companion">Accounts Entfernen</string>
+    <string name="remove_accounts">Updates Deaktivieren</string>
+    <string name="disable_ota">Updates Deaktivieren</string>
+    <string name="enable_ota">Updates Aktivieren</string>
+    <string name="telemetry">Aktivieren/Deaktivieren Telemetrie</string>
 
     <string name="title">Wichtige Information</string>
     <string name="message0">Bitte starten Sie nach dem ersten Mal neu!\nWiederholen Sie den Schritt nach jedem Neustart!</string>
@@ -21,4 +22,5 @@
     <string name="cancel">Abbrechen</string>
     <string name="disable">Telemetrie Deaktivieren</string>
     <string name="enable">Telemetrie Aktivieren</string>
+    <string name="audio">Hintergrundaudio für alle Apps Aktivieren\n(bleibt nach Neustart nicht)</string>
 </resources>
