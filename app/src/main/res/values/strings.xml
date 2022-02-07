@@ -13,7 +13,7 @@
     <string name="telemetry">Enable/Disable Telemetry</string>
 
     <string name="title">Important Info</string>
-    <string name="message0">NOTE: This may not work if device owner is set\nPlease restart after the first time!\nRepeat this step after every restart!</string>
+    <string name="message0">NOTE: Set light theme, or else text will be white on white\nPlease restart after the first time!\nRepeat this step after every restart!</string>
     <string name="message1">Please remove *all* the accounts on your Device!\nRepeat this step after every restart!</string>
     <string name="message2">Device Owner has not been set!</string>
     <string name="message3">What would you like to do?</string>

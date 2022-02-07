@@ -56,8 +56,10 @@ Only use for to [disable telemetry](https://github.com/basti564/Oculess#disable-
 ### Enable Background Audio (temporary)
 1. Follow steps 1-3 of "Disable Telemetry" to set device owner. This only needs to be done once.
 2. Click on "ENABLE BACKGROUND AUDIO"
+
 Apps will now be allowed to play audio in the background, and record audio as if they have been given microphone access.
-Note that apps might still be killed, for example background apps will close when you quit a game. If this happens, reopen the suspended app, not Oculess.
+Music will be paused when a game is quit. If this happens, you will have to reopen the music app and click play.
+Note that apps might still be killed. You may need to reopen apps or click the button again if oculess is killed.
 Setting applies to all apps until the next reboot.
 
 ## Screenshot
