@@ -10,7 +10,9 @@ import android.content.pm.ApplicationInfo
 import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
+import android.os.Looper
 import android.provider.Settings
+import android.text.Html
 import android.view.WindowManager
 import android.widget.Button
 import android.widget.TextView
@@ -23,7 +25,7 @@ import android.os.Handler as Handler
 
 
 class MainActivity : AppCompatActivity() {
-    var audioApps: Array<String>? = null
+    private var audioApps: Array<String>? = null
 
     @SuppressLint("QueryPermissionsNeeded")
     @RequiresApi(Build.VERSION_CODES.P)
@@ -93,7 +95,7 @@ class MainActivity : AppCompatActivity() {
                 updateAudioPackages()
 
                 // Set recurring task (every 2s)
-                val handler = Handler()
+                val handler = Handler(Looper.getMainLooper())
                 val run = object : Runnable {
                     override fun run() {
                         handler.postDelayed(this, 2000)
@@ -106,7 +108,7 @@ class MainActivity : AppCompatActivity() {
 
             } else {
                 val builder: AlertDialog.Builder = AlertDialog.Builder(this)
-                builder.setTitle(getString(R.string.title))
+                builder.setTitle(getString(R.string.title0))
                 builder.setMessage(getString(R.string.message2))
                 builder.setPositiveButton(
                     getString(R.string.ok)
@@ -122,7 +124,7 @@ class MainActivity : AppCompatActivity() {
 
         viewAdminsBtn.setOnClickListener {
             val builder: AlertDialog.Builder = AlertDialog.Builder(this)
-            builder.setTitle(getString(R.string.title))
+            builder.setTitle(getString(R.string.title0))
             builder.setMessage(getString(R.string.message0))
             builder.setPositiveButton(
                 getString(R.string.ok)
@@ -167,7 +169,7 @@ class MainActivity : AppCompatActivity() {
 
         viewAccountsBtn.setOnClickListener {
             val builder: AlertDialog.Builder = AlertDialog.Builder(this)
-            builder.setTitle(getString(R.string.title))
+            builder.setTitle(getString(R.string.title0))
             builder.setMessage(getString(R.string.message1))
             builder.setPositiveButton(
                 getString(R.string.ok)
@@ -203,7 +205,7 @@ class MainActivity : AppCompatActivity() {
                 }
             } else {
                 val builder: AlertDialog.Builder = AlertDialog.Builder(this)
-                builder.setTitle(getString(R.string.title))
+                builder.setTitle(getString(R.string.title0))
                 builder.setMessage(getString(R.string.message2))
                 builder.setPositiveButton(
                     getString(R.string.ok)
@@ -229,6 +231,25 @@ class MainActivity : AppCompatActivity() {
                             deviceAdminReceiverComponentName, it, true
                         )
                     }
+
+                    val message = StringBuilder()
+                    telemetryApps.forEach {
+                        message.append("<b>")
+                            .append(it)
+                            .append("</b> is ")
+                            .append(if (dpm.isApplicationHidden(deviceAdminReceiverComponentName, it)) "disabled\r" else "<b>enabled</b>\r")
+                    }
+                    val builder1: AlertDialog.Builder = AlertDialog.Builder(this)
+                    builder1.setTitle(getString(R.string.title1))
+                    builder1.setMessage(Html.fromHtml(message.toString(), 0))
+                    builder1.setPositiveButton(
+                        getString(R.string.ok)
+                    ) { dialog, _ ->
+                        dialog.dismiss()
+                    }
+                    val alertDialog1: AlertDialog = builder1.create()
+                    alertDialog1.show()
+                    alertDialog1.window!!.clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
                 }
                 builder.setNegativeButton(
                     getString(R.string.enable)
@@ -244,7 +265,7 @@ class MainActivity : AppCompatActivity() {
                 alertDialog.window!!.clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
             } else {
                 val builder: AlertDialog.Builder = AlertDialog.Builder(this)
-                builder.setTitle(getString(R.string.title))
+                builder.setTitle(getString(R.string.title0))
                 builder.setMessage(getString(R.string.message2))
                 builder.setPositiveButton(
                     getString(R.string.ok)
@@ -271,7 +292,7 @@ class MainActivity : AppCompatActivity() {
 
     fun updateAudioPackages() {
         /* Get All Installed Packages for Audio */
-        //getInstalledPackages longer works properly in android 11, but quest is on android 10 so it's fine
+        //getInstalledPackages no longer works properly in android 11, but the quest is on android 10 so it's fine
         val packageinfos = applicationContext.packageManager.getInstalledPackages(0)
         val packageNames = arrayListOf<String>()
         for (packageinfo in packageinfos) {

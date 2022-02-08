@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Oculess</string>
-    <string name="app_subtitle">Modifikationstool für Oculus Quest-Geräte</string>
+    <string name="app_subtitle">Wekzeukkasten für Oculus Quest-Geräte</string>
 
     <string name="is_disabled">Oculus Begleit-Server ist deaktiviert!</string>
     <string name="is_enabled">Oculus Begleit-Server ist aktiviert!</string>
@@ -11,16 +11,17 @@
     <string name="remove_accounts">Updates Deaktivieren</string>
     <string name="disable_ota">Updates Deaktivieren</string>
     <string name="enable_ota">Updates Aktivieren</string>
-    <string name="telemetry">Aktivieren/Deaktivieren Telemetrie</string>
+    <string name="telemetry">Telemetrie Aktivieren/Deaktivieren</string>
 
-    <string name="title">Wichtige Information</string>
-    <string name="message0">Bitte starten Sie nach dem ersten Mal neu!\nWiederholen Sie den Schritt nach jedem Neustart!</string>
-    <string name="message1">Bitte entfernen Sie *alle* Accounts auf ihrem Gerät!\nWiederholen Sie den Schritt nach jedem Neustart!</string>
+    <string name="title0">Wichtige Information</string>
+    <string name="title1">Telemetrie Status</string>
+    <string name="message0">HINWEIS: Stellen stellen sie ihr System Design auf hell, sonst wird der Text nicht angezeigt\nBitte starten Sie nach dem ersten Mal neu!\nWiederholen Sie diesen Schritt nach jedem Neustart!</string>
+    <string name="message1">Bitte entfernen Sie *alle* Accounts auf ihrem Gerät!\nDies ist voruebergehent und wird nache einem Neustart zurueckgesetzt!</string>
     <string name="message2">Der Geräte Besitzer wurde nicht festgelegt!</string>
     <string name="message3">Wie möchten sie fortfahren?</string>
-    <string name="ok">Ok</string>
+    <string name="ok">OK</string>
     <string name="cancel">Abbrechen</string>
     <string name="disable">Telemetrie Deaktivieren</string>
     <string name="enable">Telemetrie Aktivieren</string>
-    <string name="audio">Hintergrundaudio für alle Apps Aktivieren\n(bleibt nach Neustart nicht)</string>
+    <string name="audio">Hintergrundaudio für alle Apps Aktivieren\n(bis zum nästen Neustart)</string>
 </resources>
