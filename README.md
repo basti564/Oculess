@@ -28,20 +28,16 @@ Text tutorial: https://basti564.github.io/Disable-Telemetry/
 Video tutorial: https://www.youtube.com/watch?v=ArXk_hob4RE
 1. Download and install the latest apk of from the [releases tab](https://github.com/basti564/Oculess/releases/) on your Quest
 2. Follow the steps in [Remove Accounts](https://github.com/basti564/Oculess#remove-accounts-temporary) section first.
-```diff 
-!Warning! You won't be able to remove this app without a factory reset after running the following command
-```
-3. Run this command (if you haven't before) ```adb shell dpm set-device-owner com.bos.oculess/.DevAdminReceiver```
+3. Run this command (if you haven't before) ```adb shell dpm set-device-owner com.bos.oculess/.DevAdminReceiver```\
+**Note: After running this command, you won't be able to remove this app until you revert it with ```adb shell dpm remove-active-admin com.bos.oculess/.DevAdminReceiver```**
 4. Click on "TELEMETRY" in the app
 5. Choose "DISABLE TELEMETRY"
 
 ### Disable Updates
 1. Download and install the latest apk of from the [releases tab](https://github.com/basti564/Oculess/releases/) on your Quest
 2. Follow the steps in [Remove Accounts](https://github.com/basti564/Oculess#remove-accounts-temporary) section first.
-```diff 
-!Warning! You won't be able to remove this app without a factory reset after running the following command
-```
-3. Run this command (if you haven't before) ```adb shell dpm set-device-owner com.bos.oculess/.DevAdminReceiver```
+3. Run this command (if you haven't before) ```adb shell dpm set-device-owner com.bos.oculess/.DevAdminReceiver```\
+**Note: After running this command, you won't be able to remove this app until you revert it with ```adb shell dpm remove-active-admin com.bos.oculess/.DevAdminReceiver```**
 4. Click on "DISABLE UPDATES" in the app
 
 ### Remove Accounts (temporary)
