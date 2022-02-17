@@ -53,7 +53,7 @@ Only use for to [disable telemetry](https://github.com/basti564/Oculess#disable-
 5. Click “REMOVE ACCOUNT”
 (Your accounts should return after like 5 minutes or a restart)
 
-### Enable Background Audio (temporary)
+### Enable Background Audio (until reboot)
 1. Follow steps 1-3 of "Disable Telemetry" to set device owner. This only needs to be done once.
 2. Click on "ENABLE BACKGROUND AUDIO"
 
