@@ -6,9 +6,9 @@
     <string name="is_disabled">Oculus Begleit-Server ist deaktiviert!</string>
     <string name="is_enabled">Oculus Begleit-Server ist aktiviert!</string>
 
-    <string name="disable_companion">Begleiter Aktivieren</string>
-    <string name="enable_companion">Accounts Entfernen</string>
-    <string name="remove_accounts">Updates Deaktivieren</string>
+    <string name="disable_companion">Begleiter Deaktivieren</string>
+    <string name="enable_companion">Begleiter Aktivieren</string>
+    <string name="remove_accounts">Accounts Entfernen</string>
     <string name="disable_ota">Updates Deaktivieren</string>
     <string name="enable_ota">Updates Aktivieren</string>
     <string name="telemetry">Telemetrie Aktivieren/Deaktivieren</string>
