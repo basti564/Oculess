@@ -10,7 +10,7 @@
 Text tutorial: https://basti564.github.io/Quest-Account-Logout/
 
 Video tutorial: https://www.youtube.com/watch?v=vIwUvtxd2-U
-1. Change your system theme to light mode (Settings>System>Display)
+1. Change your system theme to light mode
 2. Download and install the latest apk of from the [releases tab](https://github.com/basti564/Oculess/releases/) on your Quest
 3. Click on "DISABLE COMPANION"
 4. Click "OK"
