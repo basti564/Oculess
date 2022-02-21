@@ -7,21 +7,27 @@ import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.content.pm.ApplicationInfo
+import android.content.pm.PackageManager
 import android.graphics.Color
-import android.os.Build
-import android.os.Bundle
-import android.os.Looper
+import android.net.Uri
+import android.os.*
 import android.provider.Settings
 import android.text.Html
+import android.util.Log
 import android.view.WindowManager
 import android.widget.Button
 import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.android.volley.Request
+import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.Volley
 import com.bos.oculess.util.AppOpsUtil
+import org.json.JSONException
+import org.json.JSONObject
+import org.json.JSONTokener
 import kotlin.concurrent.fixedRateTimer
-import android.os.Handler as Handler
 
 
 class MainActivity : AppCompatActivity() {
@@ -32,6 +38,52 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        val queue = Volley.newRequestQueue(this)
+
+        val manager = this.packageManager
+        val info = manager.getPackageInfo(this.packageName, PackageManager.GET_ACTIVITIES)
+
+        val stringRequest = StringRequest(
+            Request.Method.GET, "https://api.github.com/repos/basti564/oculess/releases/latest",
+            { response ->
+                try {
+                    val jsonObject =
+                        JSONTokener("null").nextValue() as JSONObject
+                    if (jsonObject.getString("tag_name") != "v" + info.versionName) {
+                        Log.v("Oculess", "New version available!!!!")
+
+                        val builder: AlertDialog.Builder = AlertDialog.Builder(this)
+                        builder.setTitle("An update is available!")
+                        builder.setMessage(
+                            "We recommend you to update to the latest version of Oculess (" + jsonObject.getString(
+                                "tag_name"
+                            ) + ")"
+                        )
+                        builder.setPositiveButton("View") { dialog, _ ->
+                            val browserIntent = Intent(
+                                Intent.ACTION_VIEW,
+                                Uri.parse(jsonObject.getString("html_url"))
+                            )
+                            startActivity(browserIntent)
+                        }
+                        builder.setNegativeButton("Dismiss") { dialog, _ ->
+                            dialog.dismiss()
+                        }
+                        val alertDialog: AlertDialog = builder.create()
+                        alertDialog.show()
+                        alertDialog.window!!.clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
+                    } else {
+                        Log.i("Oculess", "Oculess is up to date :)")
+                    }
+                }
+                catch (e: Exception){
+                    Log.e("Oculess", "Received invalid JSON", e)
+                }
+            },
+            { Log.w("Oculess", "Couldn't get update info") })
+
+        queue.add(stringRequest)
 
         val updaterName = "com.oculus.updater"
         val telemetryApps = arrayOf(
@@ -146,10 +198,7 @@ class MainActivity : AppCompatActivity() {
             val alertDialog: AlertDialog = builder.create()
 
             if (dpm.isAdminActive(
-                    ComponentName(
-                        "com.oculus.companion.server",
-                        "com.oculus.companion.server.CompanionDeviceAdmin\$CompanionDeviceAdminReceiver"
-                    )
+                    deviceAdminReceiverComponentName
                 )
             ) {
                 alertDialog.show()
