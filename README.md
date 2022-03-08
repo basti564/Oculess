@@ -54,7 +54,7 @@ This option is only needed for the [Make Oculess a "Device Owner"](https://githu
 1. Download and install the latest apk of from the [releases tab](https://github.com/basti564/Oculess/releases/) on your Quest
 2. Click on "REMOVE ACCOUNT"
 3. Click "OK"
-4. Click on every account (typically only Oculus and Facebook) <-- Oculus Removed this section in the latest v38 version, you will not be able to proceed if you are on it.
+4. Click on every account (typically only Oculus and Facebook)
 5. Click “REMOVE ACCOUNT”
 (Your accounts should return after like 5 minutes or a restart)
 
