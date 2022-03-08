@@ -47,6 +47,7 @@ This only needs to be done once and after that you will never need to do it agai
 !Warning! You won't be able to remove this app without a factory reset after running the following command
 ```
 2. Run this command (if you haven't before) ```adb shell dpm set-device-owner com.bos.oculess/.DevAdminReceiver```
+(if  the  command fails try delete DRM / streaming apps or apps with accounts)
 
 ## Remove Accounts (temporary)
 This option is only needed for the [Make Oculess a "Device Owner"](https://github.com/basti564/Oculess#make-oculess-a-device-owner) section.
