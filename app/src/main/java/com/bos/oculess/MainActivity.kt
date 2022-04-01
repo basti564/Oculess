@@ -49,7 +49,7 @@ class MainActivity : AppCompatActivity() {
             { response ->
                 try {
                     val jsonObject =
-                        JSONTokener("null").nextValue() as JSONObject
+                        JSONTokener(response).nextValue() as JSONObject
                     if (jsonObject.getString("tag_name") != "v" + info.versionName) {
                         Log.v("Oculess", "New version available!!!!")
 
