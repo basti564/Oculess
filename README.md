@@ -43,11 +43,12 @@ Note that apps might still be killed. You may need to reopen apps or click the b
 ## Make Oculess a "Device Owner"
 This only needs to be done once and after that you will never need to do it again.
 1. Follow the steps in the [Remove Accounts](https://github.com/basti564/Oculess#remove-accounts-temporary) section first.
-```diff 
-!Warning! You won't be able to remove this app without a factory reset after running the following command
-```
+> **Note**
+> 
+> You won't be able to remove this app without a factory reset after running the following command
+
 2. Run this command (if you haven't before) ```adb shell dpm set-device-owner com.bos.oculess/.DevAdminReceiver```
-(if  the  command fails try delete DRM / streaming apps or apps with accounts)
+(if  the  command fails try to delete apps with accounts like Prime Video, VRChat, AltspaceVR, Whatsapp or similar)
 
 ## Remove Accounts (temporary)
 This option is only needed for the [Make Oculess a "Device Owner"](https://github.com/basti564/Oculess#make-oculess-a-device-owner) section.
