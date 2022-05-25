@@ -24,7 +24,6 @@ import com.android.volley.Request
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.bos.oculess.util.AppOpsUtil
-import org.json.JSONException
 import org.json.JSONObject
 import org.json.JSONTokener
 import kotlin.concurrent.fixedRateTimer
@@ -128,6 +127,10 @@ class MainActivity : AppCompatActivity() {
                     viewAdminsBtn.text = getString(R.string.enable_companion)
                 }
                 if (dpm.isDeviceOwnerApp(packageName)) {
+                    viewOtaBtn.isEnabled = true
+                    viewTelemetryBtn.isEnabled = true
+                    viewPermissionsBtn.isEnabled = true
+
                     if (dpm.isApplicationHidden(
                             deviceAdminReceiverComponentName, updaterName
                         )) {
@@ -138,6 +141,9 @@ class MainActivity : AppCompatActivity() {
                     }
                 } else {
                     viewOtaBtn.text = getString(R.string.disable_ota)
+                    viewOtaBtn.isEnabled = false
+                    viewTelemetryBtn.isEnabled = false
+                    viewPermissionsBtn.isEnabled = false
                 }
             }
         }
@@ -217,6 +223,10 @@ class MainActivity : AppCompatActivity() {
         }
 
         viewAccountsBtn.setOnClickListener {
+            val intentSettings = Intent()
+            intentSettings.setPackage("com.android.settings")
+            intentSettings.addCategory(Intent.CATEGORY_LAUNCHER)
+
             val builder: AlertDialog.Builder = AlertDialog.Builder(this)
             builder.setTitle(getString(R.string.title0))
             builder.setMessage(getString(R.string.message1))
@@ -224,7 +234,8 @@ class MainActivity : AppCompatActivity() {
                 getString(R.string.ok)
             ) { _, _ ->
                 startActivity(
-                    Intent(Settings.ACTION_SYNC_SETTINGS)
+                    //Intent(Settings.ACTION_SYNC_SETTINGS) // not working in v40 due to a broken redirect from aosp settings to the oem settings app
+                    intentSettings
                 )
             }
             builder.setNegativeButton(

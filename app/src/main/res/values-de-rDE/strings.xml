@@ -16,7 +16,7 @@
     <string name="title0">Wichtige Information</string>
     <string name="title1">Telemetrie Status</string>
     <string name="message0">HINWEIS: Stellen stellen sie ihr System Design auf hell, sonst wird der Text nicht angezeigt\nBitte starten Sie nach dem ersten Mal neu!\nWiederholen Sie diesen Schritt nach jedem Neustart!</string>
-    <string name="message1">Bitte entfernen Sie *alle* Accounts auf ihrem Gerät!\nDies ist voruebergehent und wird nache einem Neustart zurueckgesetzt!</string>
+    <string name="message1">Bitte gehe zu Accounts und entfernen Sie *alle* Konten auf ihrem Gerät!\nDies ist voruebergehent und wird nach einem Neustart zurueckgesetzt!</string>
     <string name="message2">Der Geräte Besitzer wurde nicht festgelegt!\nBitte folge dem Tutorial auf Github</string>
     <string name="message3">Wie möchten sie fortfahren?</string>
     <string name="ok">OK</string>
