@@ -109,6 +109,8 @@ class MainActivity : AppCompatActivity() {
             DevAdminReceiver::class.java
         )
 
+        var flagEnabledButtonsOnce = false
+
         fixedRateTimer("timer", false, 0L, 1000) {
             this@MainActivity.runOnUiThread {
                 if (dpm.isAdminActive(
@@ -127,9 +129,12 @@ class MainActivity : AppCompatActivity() {
                     viewAdminsBtn.text = getString(R.string.enable_companion)
                 }
                 if (dpm.isDeviceOwnerApp(packageName)) {
-                    viewOtaBtn.isEnabled = true
-                    viewTelemetryBtn.isEnabled = true
-                    viewPermissionsBtn.isEnabled = true
+                    if (!flagEnabledButtonsOnce) {
+                        viewOtaBtn.isEnabled = true
+                        viewTelemetryBtn.isEnabled = true
+                        viewPermissionsBtn.isEnabled = true
+                        flagEnabledButtonsOnce = true
+                    }
 
                     if (dpm.isApplicationHidden(
                             deviceAdminReceiverComponentName, updaterName
