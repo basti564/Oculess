@@ -3,8 +3,8 @@
     <string name="app_name">Oculess</string>
     <string name="app_subtitle">Wekzeukkasten für Oculus Quest-Geräte</string>
 
-    <string name="is_disabled">Oculus Begleit-Server ist deaktiviert!</string>
-    <string name="is_enabled">Oculus Begleit-Server ist aktiviert!</string>
+    <string name="server_is_disabled">Oculus Begleit-Server ist deaktiviert!</string>
+    <string name="server_is_enabled">Oculus Begleit-Server ist aktiviert!</string>
 
     <string name="disable_companion">Begleiter Deaktivieren</string>
     <string name="enable_companion">Begleiter Aktivieren</string>
@@ -24,4 +24,13 @@
     <string name="disable">Telemetrie Deaktivieren</string>
     <string name="enable">Telemetrie Aktivieren</string>
     <string name="audio">Hintergrundaudio für alle Apps Aktivieren\n(bis zum nästen Neustart)</string>
+
+    <string name="update_title">Eine Aktualisierung ist verfügbar!</string>
+    <string name="update_info">Wir empfehlen Ihnen, auf die neueste Version auf Oculess zu aktualisieren</string>
+    <string name="view">Sehen</string>
+    <string name="dismiss">Ignorieren</string>
+    <string name="is_disabled">ist deaktiviert</string>
+    <string name="is_enabled">ist aktiviert</string>
+    <string name="language">Sprache:</string>
+
 </resources>

@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">Oкулесс</string>
+    <string name="app_subtitle">Инструмент за устройства Oculus Quest</string>
+
+    <string name="server_is_disabled">Придружаващият сървър на Oculus е деактивиран!</string>
+    <string name="server_is_enabled">Придружаващият сървър на Oculus е активиран!</string>
+
+    <string name="disable_companion">Деактивирайте придружаващия сървър</string>
+    <string name="enable_companion">Активирайте придружаващия сървър</string>
+    <string name="remove_accounts">Истриване на акаунти</string>
+    <string name="disable_ota">Деактивирайте актуализациите</string>
+    <string name="enable_ota">Активирайте актуализациите</string>
+    <string name="telemetry">Активирайте/Деактивирайте телеметрията</string>
+
+    <string name="title0">Важна информация</string>
+    <string name="title1">Състояние телеметрията</string>
+    <string name="message0">ЗАБЕЛЕЖКА: Превключете към светла тема, иначе текстът ще бъде бял на бяло\nМоля рестартирайте първия път! Повтаряйте след всяко рестартиране!</string>
+    <string name="message1">Моля, отидете на Accounts и премахнете *всички* акаунти от устройството!\nТова е временно и не продължава след рестартиране!</string>
+    <string name="message2">Не съм зададен като собственик на устройството!\nМоля следвайте урока в GitHub</string>
+    <string name="message3">Какво искаш да правиш</string>
+    <string name="ok">OК</string>
+    <string name="cancel">Анулиране</string>
+    <string name="disable">Деактивирайте телеметрията</string>
+    <string name="enable">Активирайте телеметрията</string>
+    <string name="audio">Включете фоновия звук за инсталираните приложения\n(Трябва да се прилага отново след всяко рестартиране)</string>
+
+    <string name="update_title">Налична е актуализация!</string>
+    <string name="update_info">Препоръчваме ви да надстроите до най-новата версия на Oкулесс</string>
+    <string name="view">Вижте</string>
+    <string name="dismiss">Игнорирайте</string>
+    <string name="is_disabled">е активиран</string>
+    <string name="is_enabled">е деактивиран</string>
+    <string name="language">Език:</string>
+</resources>

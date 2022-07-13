@@ -53,20 +53,20 @@ class MainActivity : AppCompatActivity() {
                         Log.v("Oculess", "New version available!!!!")
 
                         val builder: AlertDialog.Builder = AlertDialog.Builder(this)
-                        builder.setTitle("An update is available!")
+                        builder.setTitle(getString(R.string.update_title))
                         builder.setMessage(
-                            "We recommend you to update to the latest version of Oculess (" + jsonObject.getString(
+                            getString(R.string.update_info) + " (" + jsonObject.getString(
                                 "tag_name"
                             ) + ")"
                         )
-                        builder.setPositiveButton("View") { dialog, _ ->
+                        builder.setPositiveButton(getString(R.string.view)) { dialog, _ ->
                             val browserIntent = Intent(
                                 Intent.ACTION_VIEW,
                                 Uri.parse(jsonObject.getString("html_url"))
                             )
                             startActivity(browserIntent)
                         }
-                        builder.setNegativeButton("Dismiss") { dialog, _ ->
+                        builder.setNegativeButton(getString(R.string.dismiss)) { dialog, _ ->
                             dialog.dismiss()
                         }
                         val alertDialog: AlertDialog = builder.create()
@@ -301,8 +301,8 @@ class MainActivity : AppCompatActivity() {
                     telemetryApps.forEach {
                         message.append("<b>")
                             .append(it)
-                            .append("</b> is ")
-                            .append(if (dpm.isApplicationHidden(deviceAdminReceiverComponentName, it)) "disabled\r" else "<b>enabled</b>\r")
+                            .append("</b> ")
+                            .append(if (dpm.isApplicationHidden(deviceAdminReceiverComponentName, it)) "${R.string.is_disabled}\r" else "<b>${R.string.is_enabled}</b>\r")
                     }
                     val builder1: AlertDialog.Builder = AlertDialog.Builder(this)
                     builder1.setTitle(getString(R.string.title1))

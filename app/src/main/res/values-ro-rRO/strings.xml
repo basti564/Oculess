@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">Oculess</string>
+    <string name="app_subtitle">Unealtă pentru dispozitive Oculus Quest</string>
+
+    <string name="server_is_disabled">Serverul Acompaniator Oculus este dezactivat!</string>
+    <string name="server_is_enabled">Serverul Acompaniator Oculus este activat!</string>
+
+    <string name="disable_companion">Dezactiveaza Serverul Acompaniator</string>
+    <string name="enable_companion">Activeaza Serverul Acompaniator</string>
+    <string name="remove_accounts">Șterge Conturi</string>
+    <string name="disable_ota">Dezactivează Actualizările</string>
+    <string name="enable_ota">Activează Actualizările</string>
+    <string name="telemetry">Activează/Dezactivează Telemetria</string>
+
+    <string name="title0">Informații Importante</string>
+    <string name="title1">Status Telemetrie</string>
+    <string name="message0">NOTĂ: Setează tema luminoasă, altfel textul va fi alb pe alb\nVă rugăm reporniți prima oară! Repetați acest pas după fiecare repornire!</string>
+    <string name="message1">Vă rugăm, duceți-va la Accounts și scoateți *toate* conturile de pe dispozitiv!\nAcest lucru este temporar și nu persistă după o repornire!</string>
+    <string name="message2">Nu sunt setat ca Proprietar al Dispozitivului!\nVă rugăm să urmăriți tutorialul de pe GitHub</string>
+    <string name="message3">Ce ați dori să faceți?</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Anulează</string>
+    <string name="disable">Dezactivează Telemetria</string>
+    <string name="enable">Activează Telemetria</string>
+    <string name="audio">Activează Sunetul din Fundal pentru Aplicațiile Instalate\n(Trebuie reaplicat după fiecare repornire)</string>
+
+    <string name="update_title">Este disponibilă o actualizare!</string>
+    <string name="update_info">Vă recomandăm să actualizați la ultima versiune a lui Oculess</string>
+    <string name="view">Vizualizează</string>
+    <string name="dismiss">Ignoră</string>
+    <string name="is_disabled">este dezactivat</string>
+    <string name="is_enabled">este activat</string>
+    <string name="language">Limbă:</string>
+</resources>

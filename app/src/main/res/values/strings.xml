@@ -2,8 +2,8 @@
     <string name="app_name">Oculess</string>
     <string name="app_subtitle">Toolbox for Oculus Quest devices</string>
 
-    <string name="is_disabled">Oculus Companion Server is disabled!</string>
-    <string name="is_enabled">Oculus Companion Server is enabled!</string>
+    <string name="server_is_disabled">Oculus Companion Server is disabled!</string>
+    <string name="server_is_enabled">Oculus Companion Server is enabled!</string>
 
     <string name="disable_companion">Disable Companion Server</string>
     <string name="enable_companion">Enable Companion Server</string>
@@ -23,4 +23,19 @@
     <string name="disable">Disable Telemetry</string>
     <string name="enable">Enable Telemetry</string>
     <string name="audio">Enable Background Audio for Installed Apps\n(Must reapply after reboot)</string>
+
+    <string name="update_title">An update is available!</string>
+    <string name="update_info">We recommend you to update to the latest version of Oculess</string>
+    <string name="view">View</string>
+    <string name="dismiss">Dismiss</string>
+    <string name="is_disabled">is disabled</string>
+    <string name="is_enabled">is enabled</string>
+
+    <string name="language">Language:</string>
+    <string-array name="languages" translatable="false">
+        <item>English</item>
+        <item>Deutsch</item>
+        <item>Română</item>
+        <item>Български</item>
+    </string-array>
 </resources>
