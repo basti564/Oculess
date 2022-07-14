@@ -2,8 +2,8 @@
     <string name="app_name">Oculess</string>
     <string name="app_subtitle">Toolbox for Oculus Quest devices</string>
 
-    <string name="server_is_disabled">Oculus Companion Server is disabled!</string>
-    <string name="server_is_enabled">Oculus Companion Server is enabled!</string>
+    <string name="companion_is_disabled">Oculus Companion Server is disabled!</string>
+    <string name="companion_is_enabled">Oculus Companion Server is enabled!</string>
 
     <string name="disable_companion">Disable Companion Server</string>
     <string name="enable_companion">Enable Companion Server</string>
@@ -29,7 +29,7 @@
     <string name="view">View</string>
     <string name="dismiss">Dismiss</string>
     <string name="is_disabled">is disabled</string>
-    <string name="is_enabled">is enabled</string>
+    <string name="is_enabled">is <b>enabled</b></string>
 
     <string name="language">Language:</string>
     <string-array name="languages" translatable="false">

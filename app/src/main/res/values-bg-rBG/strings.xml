@@ -2,8 +2,8 @@
     <string name="app_name">Oкулесс</string>
     <string name="app_subtitle">Инструмент за устройства Oculus Quest</string>
 
-    <string name="server_is_disabled">Придружаващият сървър на Oculus е деактивиран!</string>
-    <string name="server_is_enabled">Придружаващият сървър на Oculus е активиран!</string>
+    <string name="companion_is_disabled">Придружаващият сървър на Oculus е деактивиран!</string>
+    <string name="companion_is_enabled">Придружаващият сървър на Oculus е активиран!</string>
 
     <string name="disable_companion">Деактивирайте придружаващия сървър</string>
     <string name="enable_companion">Активирайте придружаващия сървър</string>
@@ -28,7 +28,7 @@
     <string name="update_info">Препоръчваме ви да надстроите до най-новата версия на Oкулесс</string>
     <string name="view">Вижте</string>
     <string name="dismiss">Игнорирайте</string>
-    <string name="is_disabled">е активиран</string>
-    <string name="is_enabled">е деактивиран</string>
+    <string name="is_disabled">е деактивиран</string>
+    <string name="is_enabled">е <b>активиран</b></string>
     <string name="language">Език:</string>
 </resources>

@@ -51,7 +51,7 @@
         app:layout_constraintTop_toBottomOf="@+id/viewOtaBtn" />
 
     <TextView
-        android:id="@+id/Title"
+        android:id="@+id/viewTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="52dp"
@@ -77,7 +77,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/isEnabledText2"
+        android:id="@+id/viewSubtitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -151,7 +151,7 @@
         app:layout_constraintTop_toBottomOf="@+id/viewPermissionsBtn">
 
         <TextView
-            android:id="@+id/languageLabel"
+            android:id="@+id/viewLanguageLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0"
@@ -160,7 +160,7 @@
             android:textSize="16sp" />
 
         <Spinner
-            android:id="@+id/languageDropDown"
+            android:id="@+id/viewLanguageDropdown"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:entries="@array/languages"

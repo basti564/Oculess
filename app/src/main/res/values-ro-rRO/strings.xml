@@ -2,8 +2,8 @@
     <string name="app_name">Oculess</string>
     <string name="app_subtitle">Unealtă pentru dispozitive Oculus Quest</string>
 
-    <string name="server_is_disabled">Serverul Acompaniator Oculus este dezactivat!</string>
-    <string name="server_is_enabled">Serverul Acompaniator Oculus este activat!</string>
+    <string name="companion_is_disabled">Serverul Acompaniator Oculus este dezactivat!</string>
+    <string name="companion_is_enabled">Serverul Acompaniator Oculus este activat!</string>
 
     <string name="disable_companion">Dezactiveaza Serverul Acompaniator</string>
     <string name="enable_companion">Activeaza Serverul Acompaniator</string>
@@ -29,6 +29,6 @@
     <string name="view">Vizualizează</string>
     <string name="dismiss">Ignoră</string>
     <string name="is_disabled">este dezactivat</string>
-    <string name="is_enabled">este activat</string>
+    <string name="is_enabled">este <b>activat</b></string>
     <string name="language">Limbă:</string>
 </resources>

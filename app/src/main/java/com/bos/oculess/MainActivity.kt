@@ -11,12 +11,11 @@ import android.content.pm.PackageManager
 import android.graphics.Color
 import android.net.Uri
 import android.os.*
-import android.provider.Settings
 import android.text.Html
 import android.util.Log
+import android.view.View
 import android.view.WindowManager
-import android.widget.Button
-import android.widget.TextView
+import android.widget.*
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -26,6 +25,7 @@ import com.android.volley.toolbox.Volley
 import com.bos.oculess.util.AppOpsUtil
 import org.json.JSONObject
 import org.json.JSONTokener
+import java.util.*
 import kotlin.concurrent.fixedRateTimer
 
 
@@ -38,6 +38,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val sharedPref = applicationContext.getSharedPreferences("Oculess", 0)
+        val sharedPrefEditor = sharedPref.edit()
+        var conf = resources.configuration
+        val lang = sharedPref.getString("language", "en")
+        conf.setLocale(Locale(lang))
+        resources.updateConfiguration(conf, resources.displayMetrics)
+
         val queue = Volley.newRequestQueue(this)
 
         val manager = this.packageManager
@@ -47,8 +54,7 @@ class MainActivity : AppCompatActivity() {
             Request.Method.GET, "https://api.github.com/repos/basti564/oculess/releases/latest",
             { response ->
                 try {
-                    val jsonObject =
-                        JSONTokener(response).nextValue() as JSONObject
+                    val jsonObject = JSONTokener(response).nextValue() as JSONObject
                     if (jsonObject.getString("tag_name") != "v" + info.versionName) {
                         Log.v("Oculess", "New version available!!!!")
 
@@ -101,6 +107,19 @@ class MainActivity : AppCompatActivity() {
         val viewOtaBtn = findViewById<Button>(R.id.viewOtaBtn)
         val viewTelemetryBtn = findViewById<Button>(R.id.viewTelemetryBtn)
         val viewPermissionsBtn = findViewById<Button>(R.id.viewPermissionsBtn)
+        val viewLanguageDropdown = findViewById<Spinner>(R.id.viewLanguageDropdown)
+        val viewTitle = findViewById<TextView>(R.id.viewTitle)
+        val viewSubtitle = findViewById<TextView>(R.id.viewSubtitle)
+        val viewLanguageLabel = findViewById<TextView>(R.id.viewLanguageLabel)
+
+        var id = 0
+        when (lang){
+            "de" -> id=1
+            "ro" -> id=2
+            "bg" -> id=3
+        }
+
+        viewLanguageDropdown.setSelection(id)
 
         val dpm = getSystemService(Context.DEVICE_POLICY_SERVICE) as DevicePolicyManager
 
@@ -113,6 +132,13 @@ class MainActivity : AppCompatActivity() {
 
         fixedRateTimer("timer", false, 0L, 1000) {
             this@MainActivity.runOnUiThread {
+                // update text according to language
+                viewTitle.text = getString(R.string.app_name)
+                viewSubtitle.text = getString(R.string.app_subtitle)
+                viewAccountsBtn.text = getString(R.string.remove_accounts)
+                viewTelemetryBtn.text = getString(R.string.telemetry)
+                viewPermissionsBtn.text = getString(R.string.audio)
+                viewLanguageLabel.text = getString(R.string.language)
                 if (dpm.isAdminActive(
                         ComponentName(
                             "com.oculus.companion.server",
@@ -121,11 +147,11 @@ class MainActivity : AppCompatActivity() {
                     )
                 ) {
                     isEnabledText.setTextColor(Color.GREEN)
-                    isEnabledText.text = getString(R.string.is_enabled)
+                    isEnabledText.text = getString(R.string.companion_is_enabled)
                     viewAdminsBtn.text = getString(R.string.disable_companion)
                 } else {
                     isEnabledText.setTextColor(Color.RED)
-                    isEnabledText.text = getString(R.string.is_disabled)
+                    isEnabledText.text = getString(R.string.companion_is_disabled)
                     viewAdminsBtn.text = getString(R.string.enable_companion)
                 }
                 if (dpm.isDeviceOwnerApp(packageName)) {
@@ -302,7 +328,7 @@ class MainActivity : AppCompatActivity() {
                         message.append("<b>")
                             .append(it)
                             .append("</b> ")
-                            .append(if (dpm.isApplicationHidden(deviceAdminReceiverComponentName, it)) "${R.string.is_disabled}\r" else "<b>${R.string.is_enabled}</b>\r")
+                            .append(if (dpm.isApplicationHidden(deviceAdminReceiverComponentName, it)) "${R.string.is_disabled}\r" else "${R.string.is_enabled}\r")
                     }
                     val builder1: AlertDialog.Builder = AlertDialog.Builder(this)
                     builder1.setTitle(getString(R.string.title1))
@@ -341,6 +367,27 @@ class MainActivity : AppCompatActivity() {
                 alertDialog.show()
                 alertDialog.window!!.clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
             }
+        }
+
+
+        viewLanguageDropdown.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, pos: Int, id: Long) {
+                var lan = "en"
+                when (pos){
+                    1 -> lan="de"
+                    2 -> lan="ro"
+                    3 -> lan="bg"
+                }
+                conf.setLocale(Locale(lan))
+                resources.updateConfiguration(conf, resources.displayMetrics)
+                sharedPrefEditor.putString("language", lan)
+                sharedPrefEditor.commit()
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+                // nothing since we'll always have a language selected
+            }
+
         }
     }
 

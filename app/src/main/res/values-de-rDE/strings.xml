@@ -3,8 +3,8 @@
     <string name="app_name">Oculess</string>
     <string name="app_subtitle">Wekzeukkasten für Oculus Quest-Geräte</string>
 
-    <string name="server_is_disabled">Oculus Begleit-Server ist deaktiviert!</string>
-    <string name="server_is_enabled">Oculus Begleit-Server ist aktiviert!</string>
+    <string name="companion_is_disabled">Oculus Begleit-Server ist deaktiviert!</string>
+    <string name="companion_is_enabled">Oculus Begleit-Server ist aktiviert!</string>
 
     <string name="disable_companion">Begleiter Deaktivieren</string>
     <string name="enable_companion">Begleiter Aktivieren</string>
@@ -30,7 +30,7 @@
     <string name="view">Sehen</string>
     <string name="dismiss">Ignorieren</string>
     <string name="is_disabled">ist deaktiviert</string>
-    <string name="is_enabled">ist aktiviert</string>
+    <string name="is_enabled">ist <b>aktiviert</b></string>
     <string name="language">Sprache:</string>
 
 </resources>
