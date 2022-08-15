@@ -6,7 +6,7 @@
 - [Disable Updates](https://github.com/basti564/Oculess#disable-updates)
 - (New) [Enable Audio in Background](https://github.com/basti564/Oculess#enable-background-audio)
 
-## Full Account Logout + Disable Most FB Stuff (Disable Device Companion)
+## [only v41 and lower] Full Account Logout + Disable Most FB Stuff (Disable Device Companion)
 Text tutorial: https://basti564.github.io/Quest-Account-Logout/
 
 Video tutorial: https://www.youtube.com/watch?v=vIwUvtxd2-U
