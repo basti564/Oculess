@@ -1,9 +1,9 @@
-# Oculess
+# Oculess (DON'T USE ON V50)
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/R6R1657BK)
 ## Features
-- [Disable telemetry](https://github.com/basti564/Oculess#disable-telemetry)
+- (~v49 or lower) [Disable telemetry](https://github.com/basti564/Oculess#disable-telemetry)
 - (~v41 or lower) [Disable Updates](https://github.com/basti564/Oculess#disable-updates)
-- [Enable Audio in Background](https://github.com/basti564/Oculess#enable-background-audio)
+- (~v49 or lower) [Enable Audio in Background](https://github.com/basti564/Oculess#enable-background-audio)
 - (v41 or lower) [Log Out OF Oculus / FaceBook account](https://github.com/basti564/Oculess#full-account-logout--disable-most-fb-stuff-disable-device-companion)
 
 ## Disable Telemetry
