@@ -1,4 +1,4 @@
-# Oculess (DON'T USE ON V50)
+# Oculess (DON'T USE ON V50+)
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/R6R1657BK)
 ## Features
 - (~v49 or lower) [Disable telemetry](https://github.com/basti564/Oculess#disable-telemetry)
