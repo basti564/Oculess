@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--Disable-->
+    <item android:drawable="@drawable/ic_button_disable"
+        android:state_enabled="false" />
+
+    <!--Default-->
+    <item android:drawable="@drawable/ic_button_default"
+        android:state_pressed="false"
+        android:state_selected="false" />
+
+    <item android:drawable="@drawable/ic_button_default_touch"
+        android:state_pressed="true"
+        android:state_selected="false"  />
+
+
+</selector>
