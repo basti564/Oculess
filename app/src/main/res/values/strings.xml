@@ -1,26 +1,38 @@
 <resources>
     <string name="app_name">Oculess</string>
+    <string name="app_name_pre" translatable="false">Ocu</string>
+    <string name="app_name_end" translatable="false">less</string>
     <string name="app_subtitle">Toolbox for Oculus Quest devices</string>
 
-    <string name="is_disabled">Oculus Companion Server is disabled!</string>
-    <string name="is_enabled">Oculus Companion Server is enabled!</string>
+    <string name="companion_disabled">Oculus Companion Server is disabled!</string>
+    <string name="companion_enabled">Oculus Companion Server is enabled!</string>
 
-    <string name="disable_companion">Disable Companion Server</string>
-    <string name="enable_companion">Enable Companion Server</string>
-    <string name="remove_accounts">Remove Accounts</string>
-    <string name="disable_ota">Disable Updates</string>
-    <string name="enable_ota">Enable Updates</string>
-    <string name="telemetry">Enable/Disable Telemetry</string>
+    <string name="owner_enabled">Device owner is enabled!</string>
+    <string name="owner_disabled">Check GitHub for information on device owner features.</string>
+
+    <string name="disable_companion">Disable Oculus Companion Server</string>
+    <string name="enable_companion">Enable Oculus Companion Server</string>
+    <string name="remove_accounts">Remove Accounts (UNSAFE)</string>
+    <string name="disable_ota">Disable System Updates</string>
+    <string name="enable_ota">Enable System Updates</string>
+    <string name="telemetry">Enable/Disable Telemetry Apps</string>
 
     <string name="title0">Important Info</string>
     <string name="title1">Telemetry Status</string>
     <string name="message0">NOTE: Set light theme, or else text will be white on white\nPlease restart after the first time!\nRepeat this step after every restart!</string>
-    <string name="message1">Please go to Accounts and remove *all* the accounts on your Device!\nThis is temporary and does not persist a reboot!</string>
+    <string name="message1">WARNING: Removing a Meta account is most likely irreversible and will PERMANANTLY DISABLE SOME FUNCTIONALITY!\nIt is required to remove ALL accounts if you wish to activate device admin.\n(Check GitHub for more info)</string>
     <string name="message2">Device Owner has not been set!\nPlease follow the tutorial on GitHub</string>
     <string name="message3">What would you like to do?</string>
+    <string name="message4">Oculess will no longer be your device owner, and may be uninstalled normally.\nThis will disable some functions, and you will have to follow the guide if you wish to re-enable.</string>
     <string name="ok">OK</string>
     <string name="cancel">Cancel</string>
-    <string name="disable">Disable Telemetry</string>
-    <string name="enable">Enable Telemetry</string>
-    <string name="audio">Enable Background Audio for Installed Apps\n(Must reapply after reboot)</string>
+    <string name="disable_telemetry">Disable Telemetry</string>
+    <string name="enable_telemetry">Enable Telemetry</string>
+    <string name="disable_ownership">Remove Device Ownership</string>
+    <string name="enable_ownership">Enable Device Ownership</string>
+    <string name="audio_button">Background Audio for all Devices</string>
+    <string name="audio_info">With device owner enabled, all apps will be allowed to play audio in the background (similar to the experimental setting available on some devices)\nIf you just activated device owner, hold the power button and restart your headset. It should be automatic after that.</string>
+    <string name="owner_info">This can be undone, but REMOVING ACCOUNTS IS PERMANENT.\n1. Remove all accounts with the button above\n2. Using ADB: adb shell dpm set-device-owner com.bos.oculess/.DevAdminReceiver\n(More detail on github!)</string>
+    <string name="adb" translatable="false">adb shell dpm set-device-owner com.bos.oculess/.DevAdminReceiver</string>
+    <string name="copy">COPY COMMAND</string>
 </resources>

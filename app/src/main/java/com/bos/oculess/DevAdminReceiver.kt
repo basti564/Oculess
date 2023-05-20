@@ -5,7 +5,6 @@ import android.content.Context
 import android.content.Intent
 import android.util.Log
 import android.widget.Toast
-import androidx.core.content.ContextCompat.startActivity
 
 class DevAdminReceiver : DeviceAdminReceiver() {
     private val TAG = "DeviceAdminReceiver"

@@ -1,89 +1,39 @@
 package com.bos.oculess.util;
 
+// CREDIT: https://github.com/apsun/NekoSMS/blob/cde4074f4f839e088f251500d8a1d19dee7a1895/app/src/main/java/com/crossbowffs/nekosms/utils/AppOpsUtils.java
+// Used from NekoSMS by apsun under GPLv3
+
 import android.app.AppOpsManager;
 import android.content.Context;
-import android.os.Build;
-import android.os.IBinder;
-import android.os.RemoteException;
 
-import androidx.annotation.RequiresApi;
+import java.lang.reflect.Method;
 
-import com.bos.oculess.util.Hack;
+public final class AppOpsUtil {
+    public static final int OP_WRITE_SMS = 15;
 
-/**
- * @author heruoxin @ CatchingNow Inc.
- * @since 2019-03-31
- */
-public class AppOpsUtil {
-    private static AppOpsManager sManager;
+    private static final Method sCheckOpMethod;
+    private static final Method sSetModeMethod;
 
-    @RequiresApi(api = Build.VERSION_CODES.P)
-    public static void setMode(Context context, int opCode, int uid, String packageName, int mode) {
-        if (sManager == null) {
-            sManager = context.getSystemService(AppOpsManager.class);
-        }
-        Hack.into(AppOpsManager.class)
-                .method("setMode")
-                .returning(void.class)
-                .withParams(int.class, int.class, String.class, int.class)
-                .invoke(opCode, uid, packageName, mode)
-                .on(sManager);
+    static {
+        Class<AppOpsManager> cls = AppOpsManager.class;
+        sCheckOpMethod = ReflectionUtils.getDeclaredMethod(cls, "checkOpNoThrow", int.class, int.class, String.class);
+        sSetModeMethod = ReflectionUtils.getDeclaredMethod(cls, "setMode", int.class, int.class, String.class, int.class);
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.P)
-    public static void startWatchingMode(Context context, int opCode, String packageName, int flags, final AppOpsManager.OnOpChangedListener callback) {
-        if (sManager == null) {
-            sManager = context.getSystemService(AppOpsManager.class);
-        }
-        Hack.into(AppOpsManager.class)
-                .method("startWatchingMode")
-                .returning(void.class)
-                .withParams(int.class, String.class, int.class, AppOpsManager.OnOpChangedListener.class)
-                .invoke(opCode, packageName, flags, callback)
-                .on(sManager);
+    private AppOpsUtil() { }
+
+    private static AppOpsManager getAppOpsManager(Context context) {
+        return (AppOpsManager)context.getSystemService(Context.APP_OPS_SERVICE);
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.P)
-    public static void setUidMode(Context context, int opCode, int uid, int mode) {
-        if (sManager == null) {
-            sManager = context.getSystemService(AppOpsManager.class);
-        }
-        Hack.into(AppOpsManager.class)
-                .method("setUidMode")
-                .returning(void.class)
-                .withParams(int.class, int.class, int.class)
-                .invoke(opCode, uid, mode)
-                .on(sManager);
+    public static boolean checkOp(Context context, int opCode, int uid, String packageName) {
+        AppOpsManager appOpsManager = getAppOpsManager(context);
+        int result = (Integer)ReflectionUtils.invoke(sCheckOpMethod, appOpsManager, opCode, uid, packageName);
+        return result == AppOpsManager.MODE_ALLOWED;
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.P)
-    public static void resetAllModes(int userId, String packageName) throws RemoteException {
-        IBinder binder = Hack.into("android.os.ServiceManager")
-                .staticMethod("getService")
-                .returning(IBinder.class)
-                .withParams(String.class)
-                .invoke(Context.APP_OPS_SERVICE)
-                .statically();
-
-        Object appopsService;
-        try {
-            appopsService = Hack.into("com.android.internal.app.IAppOpsService$Stub")
-                    .staticMethod("asInterface")
-                    .returning(Class.forName("com.android.internal.app.IAppOpsService"))
-                    .withParams(IBinder.class)
-                    .invoke(binder)
-                    .statically();
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
-        }
-
-        Hack.into("com.android.internal.app.IAppOpsService")
-                .method("resetAllModes")
-                .returning(void.class)
-                .throwing(RemoteException.class)
-                .withParams(int.class, String.class)
-                .invoke(userId, packageName)
-                .on(appopsService);
+    public static void allowOp(Context context, int opCode, int uid, String packageName) {
+        AppOpsManager appOpsManager = getAppOpsManager(context);
+        ReflectionUtils.invoke(sSetModeMethod, appOpsManager, opCode, uid, packageName, AppOpsManager.MODE_ALLOWED);
     }
-
 }

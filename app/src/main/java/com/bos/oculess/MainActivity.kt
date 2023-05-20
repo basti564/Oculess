@@ -1,17 +1,11 @@
 package com.bos.oculess
 
-import android.annotation.SuppressLint
-import android.app.AppOpsManager
 import android.app.admin.DevicePolicyManager
-import android.content.ComponentName
-import android.content.Context
-import android.content.Intent
-import android.content.pm.ApplicationInfo
+import android.content.*
 import android.content.pm.PackageManager
-import android.graphics.Color
 import android.net.Uri
-import android.os.*
-import android.provider.Settings
+import android.os.Build
+import android.os.Bundle
 import android.text.Html
 import android.util.Log
 import android.view.WindowManager
@@ -23,17 +17,13 @@ import androidx.appcompat.app.AppCompatActivity
 import com.android.volley.Request
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
-import com.bos.oculess.util.AppOpsUtil
 import org.json.JSONObject
 import org.json.JSONTokener
 import kotlin.concurrent.fixedRateTimer
 
 
 class MainActivity : AppCompatActivity() {
-    private var audioApps: Array<String>? = null
-
-    @SuppressLint("QueryPermissionsNeeded")
-    @RequiresApi(Build.VERSION_CODES.P)
+    @RequiresApi(Build.VERSION_CODES.N)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -59,7 +49,7 @@ class MainActivity : AppCompatActivity() {
                                 "tag_name"
                             ) + ")"
                         )
-                        builder.setPositiveButton("View") { dialog, _ ->
+                        builder.setPositiveButton("View") { _, _ ->
                             val browserIntent = Intent(
                                 Intent.ACTION_VIEW,
                                 Uri.parse(jsonObject.getString("html_url"))
@@ -94,23 +84,23 @@ class MainActivity : AppCompatActivity() {
             "com.oculus.appsafety"
         )
 
-        val isEnabledText = findViewById<TextView>(R.id.isEnabledText)
-
         val viewAdminsBtn = findViewById<Button>(R.id.viewAdminsBtn)
         val viewAccountsBtn = findViewById<Button>(R.id.viewAccountsBtn)
         val viewOtaBtn = findViewById<Button>(R.id.viewOtaBtn)
         val viewTelemetryBtn = findViewById<Button>(R.id.viewTelemetryBtn)
-        val viewPermissionsBtn = findViewById<Button>(R.id.viewPermissionsBtn)
+        val audioBtn = findViewById<Button>(R.id.audioBtn)
+        val ownershipBtn = findViewById<Button>(R.id.ownershipBtn)
+        val status = findViewById<TextView>(R.id.Status)
 
         val dpm = getSystemService(Context.DEVICE_POLICY_SERVICE) as DevicePolicyManager
+
+        var isOwner = false
+        var companionStatus:String ?= null
 
         val deviceAdminReceiverComponentName = ComponentName(
             applicationContext,
             DevAdminReceiver::class.java
         )
-
-        var flagEnabledButtonsOnce = false
-
         fixedRateTimer("timer", false, 0L, 1000) {
             this@MainActivity.runOnUiThread {
                 if (dpm.isAdminActive(
@@ -120,22 +110,21 @@ class MainActivity : AppCompatActivity() {
                         )
                     )
                 ) {
-                    isEnabledText.setTextColor(Color.GREEN)
-                    isEnabledText.text = getString(R.string.is_enabled)
                     viewAdminsBtn.text = getString(R.string.disable_companion)
+                    companionStatus = getString(R.string.companion_enabled)
                 } else {
-                    isEnabledText.setTextColor(Color.RED)
-                    isEnabledText.text = getString(R.string.is_disabled)
                     viewAdminsBtn.text = getString(R.string.enable_companion)
+                    companionStatus = getString(R.string.companion_disabled)
                 }
-                if (dpm.isDeviceOwnerApp(packageName)) {
-                    if (!flagEnabledButtonsOnce) {
-                        viewOtaBtn.isEnabled = true
-                        viewTelemetryBtn.isEnabled = true
-                        viewPermissionsBtn.isEnabled = true
-                        flagEnabledButtonsOnce = true
-                    }
-
+                isOwner = dpm.isDeviceOwnerApp(packageName)
+                // Owner-only buttons
+                viewOtaBtn.isEnabled = isOwner
+                viewTelemetryBtn.isEnabled = isOwner
+                audioBtn.isEnabled = isOwner
+                ownershipBtn.text = if (isOwner) getString(R.string.disable_ownership) else getString(R.string.enable_ownership)
+                status.text = if (isOwner) getString(R.string.owner_enabled) else getString(R.string.owner_disabled)
+                // Enable/disable update button
+                if (isOwner) {
                     if (dpm.isApplicationHidden(
                             deviceAdminReceiverComponentName, updaterName
                         )) {
@@ -146,49 +135,14 @@ class MainActivity : AppCompatActivity() {
                     }
                 } else {
                     viewOtaBtn.text = getString(R.string.disable_ota)
-                    viewOtaBtn.isEnabled = false
-                    viewTelemetryBtn.isEnabled = false
-                    viewPermissionsBtn.isEnabled = false
                 }
-            }
-        }
-
-        viewPermissionsBtn.setOnClickListener {
-            if (dpm.isDeviceOwnerApp(packageName)) {
-                updateAudioPackages()
-
-                // Set recurring task (every 2s)
-                val handler = Handler(Looper.getMainLooper())
-                val run = object : Runnable {
-                    override fun run() {
-                        handler.postDelayed(this, 2000)
-                        enableBackgroundAudio()
-                    }
-                }
-                handler.post(run)
-
-                viewPermissionsBtn.isEnabled = false
-
-            } else {
-                val builder: AlertDialog.Builder = AlertDialog.Builder(this)
-                builder.setTitle(getString(R.string.title0))
-                builder.setMessage(getString(R.string.message2))
-                builder.setPositiveButton(
-                    getString(R.string.ok)
-                ) { dialog, _ ->
-                    dialog.dismiss()
-                }
-                val alertDialog: AlertDialog = builder.create()
-                alertDialog.show()
-                alertDialog.window!!.clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
-
             }
         }
 
         viewAdminsBtn.setOnClickListener {
             val builder: AlertDialog.Builder = AlertDialog.Builder(this)
             builder.setTitle(getString(R.string.title0))
-            builder.setMessage(getString(R.string.message0))
+            builder.setMessage(companionStatus + "\n" + getString(R.string.message0))
             builder.setPositiveButton(
                 getString(R.string.ok)
             ) { _, _ ->
@@ -230,7 +184,7 @@ class MainActivity : AppCompatActivity() {
         viewAccountsBtn.setOnClickListener {
             val intentSettings = Intent()
             intentSettings.setPackage("com.android.settings")
-            intentSettings.addCategory(Intent.CATEGORY_LAUNCHER)
+            intentSettings.component = ComponentName("com.android.settings","com.android.settings.Settings\$AccountDashboardActivity")
 
             val builder: AlertDialog.Builder = AlertDialog.Builder(this)
             builder.setTitle(getString(R.string.title0))
@@ -239,7 +193,6 @@ class MainActivity : AppCompatActivity() {
                 getString(R.string.ok)
             ) { _, _ ->
                 startActivity(
-                    //Intent(Settings.ACTION_SYNC_SETTINGS) // not working in v40 due to a broken redirect from aosp settings to the oem settings app
                     intentSettings
                 )
             }
@@ -289,7 +242,7 @@ class MainActivity : AppCompatActivity() {
                 builder.setTitle(getString(R.string.app_name))
                 builder.setMessage(getString(R.string.message3))
                 builder.setPositiveButton(
-                    getString(R.string.disable)
+                    getString(R.string.disable_telemetry)
                 ) { _, _ ->
                     telemetryApps.forEach {
                         dpm.setApplicationHidden(
@@ -317,7 +270,7 @@ class MainActivity : AppCompatActivity() {
                     alertDialog1.window!!.clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
                 }
                 builder.setNegativeButton(
-                    getString(R.string.enable)
+                    getString(R.string.enable_telemetry)
                 ) { _, _ ->
                     telemetryApps.forEach {
                         dpm.setApplicationHidden(
@@ -342,28 +295,61 @@ class MainActivity : AppCompatActivity() {
                 alertDialog.window!!.clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
             }
         }
-    }
 
-    @RequiresApi(Build.VERSION_CODES.P)
-    fun enableBackgroundAudio() {
-        for (app in audioApps!!) {
-            val info: ApplicationInfo = applicationContext.packageManager.getApplicationInfo(app, 0)
-            // Allow background audio playback
-            AppOpsUtil.setMode(applicationContext, 28, info.uid, app, AppOpsManager.MODE_ALLOWED)
-            // Allow background audio recording (app must have recording permission for this to do anything)
-            AppOpsUtil.setMode(applicationContext, 27, info.uid, app, AppOpsManager.MODE_ALLOWED)
+        audioBtn.setOnClickListener {
+            val builder: AlertDialog.Builder = AlertDialog.Builder(this)
+            builder.setTitle(getString(R.string.title0))
+            builder.setMessage(getString(R.string.audio_info))
+            builder.setPositiveButton(
+                getString(R.string.ok)
+            ) { dialog, _ ->
+                dialog.dismiss()
+            }
+            val alertDialog: AlertDialog = builder.create()
+            alertDialog.show()
+            alertDialog.window!!.clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
         }
-    }
 
-    fun updateAudioPackages() {
-        /* Get All Installed Packages for Audio */
-        //getInstalledPackages no longer works properly in android 11, but the quest is on android 10 so it's fine
-        val packageinfos = applicationContext.packageManager.getInstalledPackages(0)
-        val packageNames = arrayListOf<String>()
-        for (packageinfo in packageinfos) {
-            packageNames.add(packageinfo.packageName)
+        ownershipBtn.setOnClickListener {
+            if (isOwner) {
+                val builder: AlertDialog.Builder = AlertDialog.Builder(this)
+                builder.setTitle(getString(R.string.title0))
+                builder.setMessage(getString(R.string.message4))
+                builder.setPositiveButton(
+                    getString(R.string.ok)
+                ) { _, _ ->
+                    val devicePolicyManager =
+                        getSystemService(DEVICE_POLICY_SERVICE) as DevicePolicyManager
+                    devicePolicyManager.clearDeviceOwnerApp(this.packageName)
+                }
+                builder.setNegativeButton(
+                    getString(R.string.cancel)
+                ) { dialog, _ ->
+                    dialog.dismiss()
+                }
+
+                val alertDialog: AlertDialog = builder.create()
+                alertDialog.show()
+                alertDialog.window!!.clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
+            } else {
+                val builder: AlertDialog.Builder = AlertDialog.Builder(this)
+                builder.setTitle(getString(R.string.title0))
+                builder.setMessage(getString(R.string.owner_info))
+                builder.setPositiveButton(
+                    getString(R.string.copy)
+                ) { dialog, _ ->
+
+                    val clipboard: ClipboardManager =
+                        getSystemService(CLIPBOARD_SERVICE) as ClipboardManager
+                    val clip = ClipData.newPlainText(getString(R.string.adb), getString(R.string.adb))
+                    clipboard.setPrimaryClip(clip)
+                    dialog.dismiss()
+                }
+                val alertDialog: AlertDialog = builder.create()
+                alertDialog.show()
+                alertDialog.window!!.clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
+
+            }
         }
-        audioApps = packageNames.toTypedArray()
     }
 }
-

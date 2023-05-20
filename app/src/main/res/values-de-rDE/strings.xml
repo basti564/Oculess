@@ -3,12 +3,12 @@
     <string name="app_name">Oculess</string>
     <string name="app_subtitle">Wekzeukkasten für Oculus Quest-Geräte</string>
 
-    <string name="is_disabled">Oculus Begleit-Server ist deaktiviert!</string>
-    <string name="is_enabled">Oculus Begleit-Server ist aktiviert!</string>
+    <string name="companion_disabled">Oculus Begleit-Server ist deaktiviert!</string>
+    <string name="companion_enabled">Oculus Begleit-Server ist aktiviert!</string>
 
-    <string name="disable_companion">Begleiter Deaktivieren</string>
-    <string name="enable_companion">Begleiter Aktivieren</string>
-    <string name="remove_accounts">Accounts Entfernen</string>
+    <string name="disable_companion">Oculus Begleiter Deaktivieren</string>
+    <string name="enable_companion">Oculus Begleiter Aktivieren</string>
+    <string name="remove_accounts">Accounts Entfernen (ACHTUNG)</string>
     <string name="disable_ota">Updates Deaktivieren</string>
     <string name="enable_ota">Updates Aktivieren</string>
     <string name="telemetry">Telemetrie Aktivieren/Deaktivieren</string>
@@ -16,12 +16,20 @@
     <string name="title0">Wichtige Information</string>
     <string name="title1">Telemetrie Status</string>
     <string name="message0">HINWEIS: Stellen stellen sie ihr System Design auf hell, sonst wird der Text nicht angezeigt\nBitte starten Sie nach dem ersten Mal neu!\nWiederholen Sie diesen Schritt nach jedem Neustart!</string>
-    <string name="message1">Bitte gehe zu Accounts und entfernen Sie *alle* Konten auf ihrem Gerät!\nDies ist voruebergehent und wird nach einem Neustart zurueckgesetzt!</string>
+    <string name="message1">ACHTUNG: Das Entfernen eines Meta-Kontos ist höchstwahrscheinlich irreversibel und führt zur dauerhaften Deaktivierung einiger Funktionen!\nWenn Sie den Geräteadministrator aktivieren möchten, müssen Sie ALLE Konten entfernen.\n(Weitere Informationen finden Sie auf GitHub.)</string>
     <string name="message2">Der Geräte Besitzer wurde nicht festgelegt!\nBitte folge dem Tutorial auf Github</string>
     <string name="message3">Wie möchten sie fortfahren?</string>
+    <string name="message4">Oculus ist nicht länger der Eigentümer Ihres Geräts und kann möglicherweise normal deinstalliert werden.\nDadurch werden einige Funktionen deaktiviert und Sie müssen der Anleitung folgen, wenn Sie sie erneut aktivieren möchten.</string>
     <string name="ok">OK</string>
     <string name="cancel">Abbrechen</string>
-    <string name="disable">Telemetrie Deaktivieren</string>
-    <string name="enable">Telemetrie Aktivieren</string>
-    <string name="audio">Hintergrundaudio für alle Apps Aktivieren\n(bis zum nästen Neustart)</string>
+    <string name="disable_telemetry">Telemetrie Deaktivieren</string>
+    <string name="enable_telemetry">Telemetrie Aktivieren</string>
+    <string name="audio_button">Hintergrundaudio alle Apps</string>
+    <string name="owner_enabled">Gerätebesitzer ist aktiviert!</string>
+    <string name="owner_disabled">Informationen zu den Funktionen des Gerätebesitzers finden Sie auf Github.</string>
+    <string name="audio_info">Wenn der Gerätebesitzer aktiviert ist, können alle Apps Audio im Hintergrund abspielen (ähnlich der experimentellen Einstellung, die auf einigen Geräten verfügbar ist).\nWenn Sie gerade den Gerätebesitzer aktiviert haben, halten Sie die Ein-/Aus-Taste gedrückt und starten Sie Ihr Headset neu.</string>
+    <string name="disable_ownership">Entfernen Sie als Gerätebesitzer (Quest 1/2)</string>
+    <string name="enable_ownership">Aktivieren Sie den Gerätebesitz</string>
+    <string name="owner_info">Dies kann rückgängig gemacht werden, aber das Entfernen von Konten ist DAUERHAFT!\n1. Entfernen Sie alle Konten mit der Schaltfläche oben \n2. Mit ADB: adb shell dpm set-device-owner com.bos.oculess/.DevAdminReceiver\n(Mehr Details auf Github!)</string>
+    <string name="copy">KOPIERE ES</string>
 </resources>
