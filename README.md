@@ -46,7 +46,7 @@ This option is only needed for the [Make Oculess a "Device Owner"](https://githu
 > If you are unable to perform the restore process listed below, it can only be returned by a [Factory Reset](https://www.asurion.com/connect/tech-tips/how-to-reset-your-oculus-vr-headset/)
 
 > **Warning**
-> You will permanently delete all non-primary users on the device. You will be unable to create non-primary users unless device owner is disabled.
+> You will permanently delete all non-primary users on the device. You will be unable to enable library sharing unless device owner is disabled.
 
 1. Open Settings
 2. Click "Accounts"
@@ -136,6 +136,16 @@ Video tutorial: https://www.youtube.com/watch?v=vIwUvtxd2-U
 
 **Disable:** ```adb shell pm disable --user 0 com.oculus.updater```
 **Enable:** ```adb shell pm enable --user 0 com.oculus.updater```
+
+## Workaround for Multiple Users
+If you have Oculess set as device owner, you cannot setup new users normally. However, they can still be added through the hidden android settings.
+1. (Recommended) Change your system theme to dark mode & restart if neccessary, otherwise text may be invisible.
+2. Sideload [Settings Shortcut](https://github.com/basti564/SettingsShortcut/releases/
+3. Open android settings using Settings Shortcut
+4. Scroll down and click "System"
+5. Click "Multiple Users"
+6. Click "Add User" (not add guest)
+7. Setup the new user as normal
 
 ## Screenshot
 ![Screenshot](https://user-images.githubusercontent.com/12588584/152667664-40db8b5b-1e93-4518-836f-e1de3782a07a.jpg)
