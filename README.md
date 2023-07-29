@@ -76,7 +76,7 @@ Keep the phone and the quest on, and wait. Wake up your phone if/when it goes to
 In a few minutes, both Oculus and Meta accounts should be restored. If the accounts page closes, it probably worked. Open it again using "Remove/Check Accounts" in Oculess to confirm.
 
 ## Disable Telemetry Apps
-Text tutorial: https://basti564.github.io/Disable-Telemetry/
+Text tutorial: https://blahaj.life/disable-telemetry
 
 > **Note**
 > As of v50, not all apps will be disabled, and doing so may cause issues with WiFi settings.
@@ -114,7 +114,7 @@ adb shell pm enable com.oculus.appsafety
 > This fully logs you out and disables most FB/meta stuff on **v41 or lower**.
 > It can be done safely on newer versions, but doesn't seem to have much of an effect, and may be reverted at random
 
-Text tutorial: https://basti564.github.io/Quest-Account-Logout/
+Text tutorial: https://blahaj.life/quest-account-logout
 
 Video tutorial: https://www.youtube.com/watch?v=vIwUvtxd2-U
 1. (Recommended) Change your system theme to light mode (sideload [Settings Shortcut](https://github.com/basti564/SettingsShortcut/releases/) and navigate to Display>Dark Theme and turn it off)
