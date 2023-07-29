@@ -257,11 +257,10 @@ class MainActivity : AppCompatActivity() {
                         message.append("<b>")
                             .append(it)
                             .append("</b> is ")
-                            .append(if (dpm.isApplicationHidden(deviceAdminReceiverComponentName, it)) "disabled\r" else "ENABLED\r")
-                    }
+                            .append(if (dpm.isApplicationHidden(deviceAdminReceiverComponentName, it)) "disabled\r" else "<b>enabled</b>\r")                    }
                     val builder1: AlertDialog.Builder = AlertDialog.Builder(this)
                     builder1.setTitle(getString(R.string.title1))
-                    builder1.setMessage(message.toString())
+                    builder1.setMessage(Html.fromHtml(message.toString(), 0))
                     builder1.setPositiveButton(
                         getString(R.string.ok)
                     ) { dialog, _ ->
