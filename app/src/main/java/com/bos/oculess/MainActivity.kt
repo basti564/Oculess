@@ -1,3 +1,5 @@
+@file:Suppress("DEPRECATION")
+
 package com.bos.oculess
 
 import android.app.admin.DevicePolicyManager
@@ -23,7 +25,7 @@ import kotlin.concurrent.fixedRateTimer
 
 
 class MainActivity : AppCompatActivity() {
-    @RequiresApi(Build.VERSION_CODES.N)
+//    @RequiresApi(Build.VERSION_CODES.N)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -255,11 +257,11 @@ class MainActivity : AppCompatActivity() {
                         message.append("<b>")
                             .append(it)
                             .append("</b> is ")
-                            .append(if (dpm.isApplicationHidden(deviceAdminReceiverComponentName, it)) "disabled\r" else "<b>enabled</b>\r")
+                            .append(if (dpm.isApplicationHidden(deviceAdminReceiverComponentName, it)) "disabled\r" else "ENABLED\r")
                     }
                     val builder1: AlertDialog.Builder = AlertDialog.Builder(this)
                     builder1.setTitle(getString(R.string.title1))
-                    builder1.setMessage(Html.fromHtml(message.toString(), 0))
+                    builder1.setMessage(message.toString())
                     builder1.setPositiveButton(
                         getString(R.string.ok)
                     ) { dialog, _ ->
@@ -299,11 +301,39 @@ class MainActivity : AppCompatActivity() {
         audioBtn.setOnClickListener {
             val builder: AlertDialog.Builder = AlertDialog.Builder(this)
             builder.setTitle(getString(R.string.title0))
-            builder.setMessage(getString(R.string.audio_info))
-            builder.setPositiveButton(
-                getString(R.string.ok)
-            ) { dialog, _ ->
-                dialog.dismiss()
+            if (!isOwner) {
+                builder.setMessage(getString(R.string.audio_info_none))
+                builder.setPositiveButton(
+                    getString(R.string.ok)
+                ) { dialog, _ ->
+                    dialog.dismiss()
+                }
+            } else if (!AudioService.isAccessibilityInitialized(applicationContext)) {
+                builder.setMessage(getString(R.string.audio_info_serv))
+                builder.setPositiveButton(
+                    getString(R.string.ok)
+                ) { dialog, _ ->
+                    AudioService.requestAccessibility(applicationContext)
+                    dialog.dismiss()
+                }
+                builder.setNegativeButton(
+                    getString(R.string.cancel)
+                ) { dialog, _ ->
+                    dialog.dismiss()
+                }
+            } else {
+                builder.setMessage(getString(R.string.audio_info_done))
+                builder.setPositiveButton(
+                    getString(R.string.settings)
+                ) { dialog, _ ->
+                    AudioService.requestAccessibility(applicationContext)
+                    dialog.dismiss()
+                }
+                builder.setNegativeButton(
+                    getString(R.string.cancel)
+                ) { dialog, _ ->
+                    dialog.dismiss()
+                }
             }
             val alertDialog: AlertDialog = builder.create()
             alertDialog.show()

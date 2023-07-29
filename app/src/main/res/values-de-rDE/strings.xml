@@ -27,9 +27,14 @@
     <string name="audio_button">Hintergrundaudio alle Apps</string>
     <string name="owner_enabled">Gerätebesitzer ist aktiviert!</string>
     <string name="owner_disabled">Informationen zu den Funktionen des Gerätebesitzers finden Sie auf Github.</string>
-    <string name="audio_info">Wenn der Gerätebesitzer aktiviert ist, können alle Apps Audio im Hintergrund abspielen (ähnlich der experimentellen Einstellung, die auf einigen Geräten verfügbar ist).\nWenn Sie gerade den Gerätebesitzer aktiviert haben, halten Sie die Ein-/Aus-Taste gedrückt und starten Sie Ihr Headset neu.</string>
+    <string name="audio_info_none">Wenn der Gerätebesitzer aktiviert und Service sind, können alle Apps Audio im Hintergrund abspielen (ähnlich der experimentellen Einstellung, die auf einigen Geräten verfügbar ist)</string>
+    <string name="audio_info_serv">Sie müssen „Oculess“ aktivieren in den Barrierefreiheitseinstellungen.\nWenn es bereits aktiviert zu sein scheint, schalten Sie es aus und wieder ein.</string>
+    <string name="audio_info_done">Aktiviert. Jetzt spielen alle Apps Audio im Hintergrund ab</string>
     <string name="disable_ownership">Entfernen Sie als Gerätebesitzer (Quest 1/2)</string>
     <string name="enable_ownership">Aktivieren Sie den Gerätebesitz</string>
     <string name="owner_info">Dies kann rückgängig gemacht werden, aber das Entfernen von Konten ist DAUERHAFT!\n1. Entfernen Sie alle Konten mit der Schaltfläche oben \n2. Mit ADB: adb shell dpm set-device-owner com.bos.oculess/.DevAdminReceiver\n(Mehr Details auf Github!)</string>
     <string name="copy">KOPIERE ES</string>
+    <string name="settings">Einstellungen</string>
+
+    <string name="service_desc">Ermöglicht Oculess, Anwendungen Berechtigungen zum Abspielen von Audio im Hintergrund zu erteilen.</string>
 </resources>
