@@ -148,5 +148,5 @@ If you have Oculess set as device owner, you cannot setup new users normally. Ho
 7. Setup the new user as normal
 
 ## Screenshot
-![Screenshot](https://user-images.githubusercontent.com/12588584/152667664-40db8b5b-1e93-4518-836f-e1de3782a07a.jpg)
+![image](https://github.com/basti564/Oculess/assets/12588584/22a19a1d-9300-4812-82a7-b5190de74af0)
 
