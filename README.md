@@ -1,6 +1,6 @@
 # Oculess
-### [Support Basti (Creator of Oculess, Everything but Audio) on Ko-Fi](https://ko-fi.com/threethandev)
-### [Support Threethan (Developed Oculess Background Audio) on Ko-Fi](https://ko-fi.com/R6R1657BK)
+### [Support Basti (Creator of Oculess, Everything but Audio) on Ko-Fi](https://ko-fi.com/basti564)
+### [Support Threethan (Developed Oculess Background Audio) on Ko-Fi](https://ko-fi.com/threethandev)
 
 > **Note**
 > Some documentation is for version 1.5.0, which does not currently have a released build. This will be updated soon!
