@@ -19,9 +19,9 @@
 
     <string name="title0">Important Info</string>
     <string name="title1">Telemetry Status</string>
-    <string name="message0">NOTE: Set light theme, or else text will be white on white\nPlease restart after the first time!\nRepeat this step after every restart!</string>
+    <string name="message0">NOTE: Set light theme, or else text will be white on white.\nPlease restart after the first time!\nRepeat this step after every restart!</string>
     <string name="message1">WARNING: Removing a Meta account may be irreversible and can PERMANENTLY DISABLE SOME FUNCTIONALITY until factory reset.\nIt is required to remove ALL accounts if you wish to activate device admin.\n(Check GitHub for more info)</string>
-    <string name="message2">Device Owner has not been set!\nPlease follow the tutorial on GitHub</string>
+    <string name="message2">Device Owner has not been set!\nPlease follow the tutorial on GitHub.</string>
     <string name="message3">What would you like to do?</string>
     <string name="message4">Oculess will no longer be your device owner, and may be uninstalled normally.\nThis will disable some functions, and you will have to follow the guide if you wish to re-enable.</string>
     <string name="ok">OK</string>
@@ -31,10 +31,10 @@
     <string name="disable_ownership">Remove Device Ownership</string>
     <string name="enable_ownership">Enable Device Ownership</string>
     <string name="audio_button">Background Audio for All</string>
-    <string name="audio_info_none">With device owner and accessibility enabled, all apps will be allowed to play audio in the background (similar to the experimental setting available on some devices)</string>
+    <string name="audio_info_none">With device owner and accessibility enabled, all apps will be allowed to play audio in the background (similar to the experimental setting available on some devices).</string>
     <string name="audio_info_serv">You need to enable "Oculess" in accessibility settings.\nIf it appears to be enabled already, toggle it off and on.\nClick OK to open accessibility settings.</string>
     <string name="audio_info_done">Setup finished. All apps will be allowed to play audio in the background!\nYou can disable the service in accessibility settings if you want.</string>
-    <string name="owner_info">This can be undone, but REMOVING ACCOUNTS IS PERMANENT.\n1. Remove all accounts with the button above\n2. Using ADB: adb shell dpm set-device-owner com.bos.oculess/.DevAdminReceiver\n(More detail on github!)</string>
+    <string name="owner_info">This can be undone, but REMOVING ACCOUNTS IS PERMANENT.\n1. Remove all accounts with the button above.\n2. Using ADB: adb shell dpm set-device-owner com.bos.oculess/.DevAdminReceiver\n(More detail on GitHub!)</string>
     <string name="adb" translatable="false">adb shell dpm set-device-owner com.bos.oculess/.DevAdminReceiver</string>
     <string name="copy">COPY COMMAND</string>
     <string name="settings">SETTINGS</string>
