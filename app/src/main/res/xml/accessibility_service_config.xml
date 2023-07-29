@@ -4,6 +4,6 @@
     android:settingsActivity=""
     android:accessibilityEventTypes="typeWindowStateChanged|typeWindowContentChanged"
     android:accessibilityFlags="flagDefault"
-    android:notificationTimeout="250"
+    android:notificationTimeout="1000"
     android:canRetrieveWindowContent="true"
     android:canRequestFilterKeyEvents="true" />

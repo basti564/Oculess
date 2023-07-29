@@ -64,20 +64,17 @@ class AudioService : AccessibilityService() {
             handler.postDelayed(Runnable {
                 canUpdateAppList = true
                 Log.i(TAG, "Allowed to re-scan packages")
-            }, 5000) //1s timeout before we're allowed to look for new packages
+            }, 10000) //1s timeout before we're allowed to look for new packages
         }
     }
 
     // Audio-specific
     private fun audioFix() {
-        enableAudioPermission()
-
         val handler: Handler = Handler()
         val r = Runnable {
             enableAudioPermission()
         }
         handler.postDelayed(r, 250)
-        handler.postDelayed(r, 1500)
     }
     private fun updateAudioPackages() {
         Log.i(TAG, "Start package scan...")
@@ -105,7 +102,7 @@ class AudioService : AccessibilityService() {
     }
 
     private fun enableAudioPermission() {
-        Log.d(TAG, "Enabling permissions (This should run in bursts but not continuously)")
+        Log.d(TAG, "Enabling playback permissions")
 
         if (audioApps == null) {
             Log.i(TAG, "AudioApps is null!")
@@ -117,12 +114,9 @@ class AudioService : AccessibilityService() {
             // https://cs.android.com/android/platform/superproject/+/master:frameworks/proto_logging/stats/enums/app/enums.proto;l=138?q=PLAY_AUDIO
             try {
                 AppOpsUtil.allowOp(applicationContext, 28, info?.uid!!, app) // Play audio
-//                AppOpsUtil.allowOp(applicationContext, 27, info?.uid!!, app) // Record audio
             } catch (e: java.lang.SecurityException) {
                 Log.w(TAG, "Audio service lacks permission to set appops. Is Oculess device owner?")
             }
         }
-        Log.d(TAG, "Enabled permissions (This should occur VERY shortly after enabling permissions)")
-
     }
 }
