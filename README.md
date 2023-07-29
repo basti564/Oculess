@@ -29,13 +29,17 @@ Video tutorial: https://www.youtube.com/watch?v=aMnHgz2Zo3E *(Slightly outdated,
 > **Note**
 > All Apps will now be allowed to play audio in the background. This functions similarly to the Background Audio experimental setting available to Quest Pro, and formerly available on Quest 2
 > Music may be paused when a game is quit. If this happens, you will have to reopen the music app and click play.
-> Note that apps might still occasionally be killed. You may need to reopen apps or reboot again if Oculess is killed.
+> Note that apps might still occasionally be killed. You may need to reopen apps if Oculess is killed.
 
 ## Remove Accounts
 This option is only needed for the [Make Oculess a "Device Owner"](https://github.com/basti564/Oculess#make-oculess-a-device-owner) section.
 > **Note**
 > If the the "Remove/Check Accounts" button brings you to an empty settings page try the following ADB command to get to the Settings app and manually navigate to the Accounts section.
 > monkey -p com.android.settings -c android.intent.category.LAUNCHER 1
+
+> **Note**
+> If you cannot access the app launcher after this, restart your device
+> OR: open Oculess using `adb shell am start -n com.bos.Oculess/com.bos.Oculess.MainActivity` and follow the steps to [Restore Accounts](https://github.com/basti564/Oculess#restore-meta-account)
 
 > **Warning**
 > Removing a Meta account will disable some features, depending on system version.
@@ -57,6 +61,9 @@ This only needs to be done once and after that you will never need to do it agai
 1. Follow the steps in the [Remove Accounts](https://github.com/basti564/Oculess#remove-accounts) section first.
 > **Warning**
 > After running this command, you will be unable to uninstall the app until you open it and select "Remove Device Owner"
+> **Note**
+> After running this command, Oculess may show up under "Company Managed" rather than "Unknown Sources"
+
 2. Run this command (if you haven't before) ```adb shell dpm set-device-owner com.bos.oculess/.DevAdminReceiver```
 (if  the  command fails try to delete apps with accounts like Prime Video, VRChat, AltspaceVR, Whatsapp or similar)
 3. (RECOMMENDED) Follow the steps in [Restore Meta Account](https://github.com/basti564/Oculess#restore-meta-account)
