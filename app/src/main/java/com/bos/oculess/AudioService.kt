@@ -15,7 +15,7 @@ class AudioService : AccessibilityService() {
     companion object {
         private const val TAG = "OculessAudioService"
         private var audioApps: Array<String>? = null
-        private var canUpdateAppList = true;
+        private var canUpdateAppList = true
         fun isAccessibilityInitialized(context: Context): Boolean {
             try {
                 Settings.Secure.getInt(
@@ -61,7 +61,7 @@ class AudioService : AccessibilityService() {
             updateAudioPackages()
             val handler: Handler = Handler()
             canUpdateAppList = false
-            handler.postDelayed(Runnable {
+            handler.postDelayed({
                 canUpdateAppList = true
                 Log.i(TAG, "Allowed to re-scan packages")
             }, 10000) //1s timeout before we're allowed to look for new packages
@@ -114,7 +114,7 @@ class AudioService : AccessibilityService() {
             // https://cs.android.com/android/platform/superproject/+/master:frameworks/proto_logging/stats/enums/app/enums.proto;l=138?q=PLAY_AUDIO
             try {
                 AppOpsUtil.allowOp(applicationContext, 28, info?.uid!!, app) // Play audio
-            } catch (e: java.lang.SecurityException) {
+            } catch (e: SecurityException) {
                 Log.w(TAG, "Audio service lacks permission to set appops. Is Oculess device owner?")
             }
         }

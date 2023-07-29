@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId "com.bos.oculess"
-        minSdkVersion 23
+        minSdkVersion 24
         targetSdkVersion 33
         versionCode 13
         versionName "1.5.0"

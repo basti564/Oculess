@@ -6,14 +6,12 @@ import android.app.admin.DevicePolicyManager
 import android.content.*
 import android.content.pm.PackageManager
 import android.net.Uri
-import android.os.Build
 import android.os.Bundle
 import android.text.Html
 import android.util.Log
 import android.view.WindowManager
 import android.widget.Button
 import android.widget.TextView
-import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.android.volley.Request
@@ -25,7 +23,6 @@ import kotlin.concurrent.fixedRateTimer
 
 
 class MainActivity : AppCompatActivity() {
-//    @RequiresApi(Build.VERSION_CODES.N)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
