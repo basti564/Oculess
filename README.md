@@ -139,7 +139,7 @@ Video tutorial: https://www.youtube.com/watch?v=vIwUvtxd2-U
 
 ## Workaround for Multiple Users
 If you have Oculess set as device owner, you cannot setup new users normally. However, they can still be added through the hidden android settings.
-1. (Recommended) Change your system theme to dark mode & restart if neccessary, otherwise text may be invisible.
+1. (Recommended) Change your system theme to dark mode & restart if necessary, otherwise text may be invisible.
 2. Sideload [Settings Shortcut](https://github.com/basti564/SettingsShortcut/releases/
 3. Open android settings using Settings Shortcut
 4. Scroll down and click "System"
