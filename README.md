@@ -2,6 +2,9 @@
 ### [Support Basti (Creator of Oculess, Everything but Audio) on Ko-Fi](https://ko-fi.com/basti564)
 ### [Support Threethan (Developed Oculess Background Audio) on Ko-Fi](https://ko-fi.com/threethandev)
 
+> **Note**
+> If you can't find Oculess under "Unknown Sources," check "Company Managed" before you create an issue.
+
 ## Features
 - [Disable Telemetry Apps](https://github.com/basti564/Oculess#disable-telemetry-apps)
 - [Enable Audio in Background](https://github.com/basti564/Oculess#enable-background-audio)
