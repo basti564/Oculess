@@ -2,8 +2,8 @@
 ### [Support Basti (Creator of Oculess, Everything but Audio) on Ko-Fi](https://ko-fi.com/basti564)
 ### [Support Threethan (Developed Oculess Background Audio) on Ko-Fi](https://ko-fi.com/threethandev)
 
-> **Note**
-> If you can't find Oculess under "Unknown Sources," check "Company Managed" before you create an issue.
+## PLEASE READ [COMMON ISSUES](https://github.com/basti564/Oculess#common-issues) **BEFORE** CREATING A NEW ISSUE ON THIS REPO!
+**If you can't find Oculess in "Unknown Sources", check "Company Managed"**
 
 ## Features
 - [Disable Telemetry Apps](https://github.com/basti564/Oculess#disable-telemetry-apps)
@@ -34,7 +34,7 @@ Video tutorial: https://www.youtube.com/watch?v=aMnHgz2Zo3E *(Slightly outdated,
 This option is only needed for the [Make Oculess a "Device Owner"](https://github.com/basti564/Oculess#make-oculess-a-device-owner) section.
 > **Note**
 > If the the "Remove/Check Accounts" button brings you to an empty settings page try the following ADB command to get to the Settings app and manually navigate to the Accounts section.
-> monkey -p com.android.settings -c android.intent.category.LAUNCHER 1
+> adb shell "monkey -p com.android.settings -c android.intent.category.LAUNCHER 1"
 
 > **Note**
 > If you cannot access the app launcher after this, restart your device
@@ -148,4 +148,37 @@ If you have Oculess set as device owner, you cannot setup new users normally. Ho
 
 ## Screenshot
 ![image](https://github.com/basti564/Oculess/assets/12588584/22a19a1d-9300-4812-82a7-b5190de74af0)
+
+# Common Issues
+**Thoroughly re-read the instructions above, and the solutions below, BEFORE CREATING A GITHUB ISSUE.**
+
+## Oculess does not show up in "Unknown Sources"!
+Once device owner is enabled, Oculess can be found under "**Managed Apps**" or "**Company Managed**" instead. 
+
+This was noted before you set Oculess as device owner. You might want to look through the [README](https://github.com/basti564/Oculess/blob/main/README.md) again.
+
+## I cannot open the App Launcher after removing accounts
+Depending on your Quest OS version, the default app library will not open unless an Oculus account is present, or - on some versions - unless both Oculus and Meta accounts are present.
+
+Follow the instructions to (restore meta account)[https://github.com/basti564/Oculess#restore-meta-account]. 
+
+You can use `adb shell "monkey -p com.bos.oculess -c android.intent.category.LAUNCHER 1"` to open Oculess without using the built-in launcher.
+
+## Some telemetry apps are still enabled
+Some apps cannot be disabled as of v42. You may use the application [NetGuard](https://netguard.me/) to prevent them from connecting to the internet.
+
+***Note**: NetGuard is in no way affiliated with Oculess or its developers, please do not ask us for help with NetGuard.*
+
+## Issues with Guardian/lag/crashes
+Sometimes issues will occur, particularly with Guardian losing tracking, when background apps are running on the headset. This is not caused by Oculess, but by the audio-playing apps you're using alongside it. You might want to restard your device.
+
+Oculess's own background service should have minimal performance impact, and can be disabled in the same manner as it was enabled.
+
+*If disabling the Oculess accessiblity service fixes your issue, but a restart does not, please do open an issue!*
+
+## Any issue persists after a factory reset
+Oculess cannot possibly modify your device in any way that persists through a [factory reset](https://www.asurion.com/connect/tech-tips/how-to-reset-your-oculus-vr-headset/). Note that a [factory reset](https://www.asurion.com/connect/tech-tips/how-to-reset-your-oculus-vr-headset/) is NOT the same as restarting the device.
+
+Any issue which persists through a factory reset was not caused by Oculess or any other software modification. Your issue is either a defect with your device or, more likely, an issue with a recent system software update from Meta.
+
 
