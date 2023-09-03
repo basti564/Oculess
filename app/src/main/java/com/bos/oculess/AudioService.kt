@@ -11,6 +11,8 @@ import android.provider.Settings.SettingNotFoundException
 import android.util.Log
 import android.view.accessibility.AccessibilityEvent
 import com.bos.oculess.util.AppOpsUtil
+import java.lang.Exception
+
 class AudioService : AccessibilityService() {
     companion object {
         private const val TAG = "OculessAudioService"
@@ -43,11 +45,9 @@ class AudioService : AccessibilityService() {
     }
     override fun onAccessibilityEvent(e: AccessibilityEvent?) {
         if (e?.eventType == AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED) {
-            Log.i(TAG, "Trigger: TYPE_WINDOW_STATE_CHANGED")
             checkUpdateAppList()
             audioFix()
         } else if (e?.eventType == AccessibilityEvent.TYPE_WINDOW_CONTENT_CHANGED) {
-            Log.i(TAG, "Trigger: TYPE_WINDOW_CONTENT_CHANGED")
             audioFix()
         }
     }
@@ -58,7 +58,11 @@ class AudioService : AccessibilityService() {
 
     private fun checkUpdateAppList() {
         if (canUpdateAppList) {
-            updateAudioPackages()
+            try {
+                updateAudioPackages()
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
             val handler: Handler = Handler()
             canUpdateAppList = false
             handler.postDelayed({
@@ -75,6 +79,7 @@ class AudioService : AccessibilityService() {
             enableAudioPermission()
         }
         handler.postDelayed(r, 250)
+        handler.postDelayed(r, 750)
     }
     private fun updateAudioPackages() {
         Log.i(TAG, "Start package scan...")
@@ -88,13 +93,23 @@ class AudioService : AccessibilityService() {
         val packageInfoList = applicationContext.packageManager?.getInstalledPackages(0)
         val packageNames = arrayListOf<String>()
         for (packageInfo in packageInfoList!!) {
-            packageNames.add(packageInfo.packageName)
+            try {
+                packageNames.add(packageInfo.packageName)
+            } catch (e: Exception) {
+                Log.w(TAG, "Error while iterating packages")
+                e.printStackTrace()
+            }
         }
         // Remove system apps
         val packageInfoListSystem = applicationContext.packageManager?.getInstalledPackages(
             PackageManager.MATCH_SYSTEM_ONLY)
         for (packageInfoSystem in packageInfoListSystem!!) {
-            packageNames.remove(packageInfoSystem.packageName)
+            try {
+                packageNames.remove(packageInfoSystem.packageName)
+            } catch (e: Exception) {
+                Log.w(TAG, "Error while iterating packages")
+                e.printStackTrace()
+            }
         }
         // Commit to app list
         audioApps = packageNames.toTypedArray()
@@ -108,14 +123,16 @@ class AudioService : AccessibilityService() {
             Log.i(TAG, "AudioApps is null!")
             return
         }
-        var first = true
         for (app in audioApps!!) {
-            val info: ApplicationInfo?= applicationContext.packageManager?.getApplicationInfo(app, 0)
             // https://cs.android.com/android/platform/superproject/+/master:frameworks/proto_logging/stats/enums/app/enums.proto;l=138?q=PLAY_AUDIO
             try {
+                val info: ApplicationInfo?= applicationContext.packageManager?.getApplicationInfo(app, 0)
+                AppOpsUtil.allowOp(applicationContext, 27, info?.uid!!, app) // Record audio (Future-proofing)
                 AppOpsUtil.allowOp(applicationContext, 28, info?.uid!!, app) // Play audio
             } catch (e: SecurityException) {
                 Log.w(TAG, "Audio service lacks permission to set appops. Is Oculess device owner?")
+            } catch (e: Exception) {
+                Log.w(TAG, "An exception occurred while setting permissions")
             }
         }
     }
