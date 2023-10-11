@@ -5,10 +5,14 @@
 ## PLEASE READ [COMMON ISSUES](https://github.com/basti564/Oculess#common-issues) **BEFORE** CREATING A NEW ISSUE ON THIS REPO!
 **If you can't find Oculess in "Unknown Sources", check "Company Managed"**
 
+> **PROCEED WITH CAUTION**
+> Removing accounts and/or setting the device owner may render devices unusable (until factor reset) on newer Quest firmwares. 
+
 ## Features
 - [Disable Telemetry Apps](https://github.com/basti564/Oculess#disable-telemetry-apps)
 - [Enable Audio in Background](https://github.com/basti564/Oculess#enable-background-audio)
 - (v41 or lower) [Log Out OF Oculus / FaceBook account](https://github.com/basti564/Oculess#full-account-logout--disable-most-fb-stuff-disable-device-companion)
+
 
 > **Note**
 > The setup process for newer versions is quite involved, but it should not take too long if you follow the guide, and only needs to be performed once.
@@ -18,7 +22,8 @@
 > 3. Restore Meta Account
 > 4. Enable Background Audio (Finally!)
 
-## Enable Background Audio
+## Enable Background Audio For All Apps
+**If you just want Discord, Spotify, etc., [LightningLauncher](https://github.com/threethan/LightningLauncher) is a much simpler alternative.**
 Video tutorial: https://www.youtube.com/watch?v=aMnHgz2Zo3E *(Slightly outdated, so it doesn't include the Restore Meta Account step, but still very helpful)*
 1. Follow the steps in the [Make Oculess a "Device Owner"](https://github.com/basti564/Oculess#make-oculess-a-device-owner) section.
 2. Press the "Background Audio for All" button in Oculess, and click okay to open accessibility settings
