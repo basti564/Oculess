@@ -2,17 +2,19 @@
 ### [Support Basti (Creator of Oculess, Everything but Audio) on Ko-Fi](https://ko-fi.com/basti564)
 ### [Support Threethan (Developed Oculess Background Audio) on Ko-Fi](https://ko-fi.com/threethandev)
 
-## PLEASE READ [COMMON ISSUES](https://github.com/basti564/Oculess#common-issues) **BEFORE** CREATING A NEW ISSUE ON THIS REPO!
-**If you can't find Oculess in "Unknown Sources", check "Company Managed"**
+# Important Info
+Much of this app's functionality no longer works, and/or requires device owner which may cause issues. Read further for more information and non device-owner alternatives.
 
-> **PROCEED WITH CAUTION**
-> Removing accounts and/or setting the device owner may render devices unusable (until factor reset) on newer Quest firmwares. 
+> **IMPORTANT**
+> This will no longer allow you to use Spotify, as the Spotify app no longer allows you to log in on Quest. Discord also has some serious issues with buttons appearing off-screen. As an alternative, you can use the web versions of both in [LightningLauncher](https://github.com/threethan/LightningLauncher)
+
+PLEASE READ [COMMON ISSUES](https://github.com/basti564/Oculess#common-issues) **BEFORE** CREATING A NEW ISSUE ON THIS REPO!
+**If you can't find Oculess in "Unknown Sources", check "Company Managed"**
 
 ## Features
 - [Disable Telemetry Apps](https://github.com/basti564/Oculess#disable-telemetry-apps)
 - [Enable Audio in Background](https://github.com/basti564/Oculess#enable-background-audio)
 - (v41 or lower) [Log Out OF Oculus / FaceBook account](https://github.com/basti564/Oculess#full-account-logout--disable-most-fb-stuff-disable-device-companion)
-
 
 > **Note**
 > The setup process for newer versions is quite involved, but it should not take too long if you follow the guide, and only needs to be performed once.
@@ -61,6 +63,9 @@ This option is only needed for the [Make Oculess a "Device Owner"](https://githu
    (Your Oculus account should return after like 5 minutes or a restart. Meta account seems unrecoverable.)
 
 ## Make Oculess a "Device Owner"
+> **WARNING**
+> The device may not start up properly if Oculess is set as a device owner and an unlock code is set. [(Issue)](https://github.com/basti564/Oculess/issues/110)
+
 This only needs to be done once and after that you will never need to do it again.
 1. Follow the steps in the [Remove Accounts](https://github.com/basti564/Oculess#remove-accounts) section first.
 > **Warning**
