@@ -3,10 +3,12 @@
 ### [Support Threethan (Developed Oculess Background Audio) on Ko-Fi](https://ko-fi.com/threethandev)
 
 # Important Info
-Much of this app's functionality no longer works, and/or requires device owner which may cause issues. Read further for more information and non device-owner alternatives.
+Much of this app's functionality no longer works, and/or requires device owner which may cause issues. Read further for more information and non device-owner alternatives. 
+
+Telemetry apps may be disabled using ADB, and similar background audio functionality can be found in [this launcher](https://github.com/threethan/LightningLauncher). 
 
 > **IMPORTANT**
-> This will no longer allow you to use Spotify, as the Spotify app no longer allows you to log in on Quest. Discord also has some serious issues with buttons appearing off-screen. As an alternative, you can use the web versions of both in [LightningLauncher](https://github.com/threethan/LightningLauncher)
+> **Oculess will no longer allow you to use Spotify, as the Spotify app no longer allows you to log in on Quest. Discord also has some serious issues with buttons appearing off-screen. As an alternative, you can use the web versions of both in [LightningLauncher](https://github.com/threethan/LightningLauncher)**
 
 PLEASE READ [COMMON ISSUES](https://github.com/basti564/Oculess#common-issues) **BEFORE** CREATING A NEW ISSUE ON THIS REPO!
 **If you can't find Oculess in "Unknown Sources", check "Company Managed"**
