@@ -182,7 +182,7 @@ Some apps cannot be disabled as of v42. You may use the application [NetGuard](h
 ***Note**: NetGuard is in no way affiliated with Oculess or its developers, please do not ask us for help with NetGuard.*
 
 ## Issues with Guardian/lag/crashes
-Sometimes issues will occur, particularly with Guardian losing tracking, when background apps are running on the headset. This is not caused by Oculess, but by the audio-playing apps you're using alongside it. You might want to restard your device.
+Sometimes issues will occur, particularly with Guardian losing tracking, when background apps are running on the headset. This is not caused by Oculess, but by the audio-playing apps you're using alongside it. You might want to restart your device.
 
 Oculess's own background service should have minimal performance impact, and can be disabled in the same manner as it was enabled.
 
