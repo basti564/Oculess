@@ -73,7 +73,7 @@ This only needs to be done once and after that you will never need to do it agai
 > **Warning**
 > After running this command, you will be unable to uninstall the app until you open it and select "Remove Device Owner"
 > **Note**
-> After running this command, Oculess may show up under "Company Managed" rather than "Unknown Sources"
+> After running this command, Oculess may show up under "Company Managed" or "For Work" rather than "Unknown Sources"
 
 2. Run this command (if you haven't before) ```adb shell dpm set-device-owner com.bos.oculess/.DevAdminReceiver```
 (if  the  command fails try to delete apps with accounts like Prime Video, VRChat, AltspaceVR, Whatsapp or similar)
@@ -165,7 +165,7 @@ If you have Oculess set as device owner, you cannot setup new users normally. Ho
 **Thoroughly re-read the instructions above, and the solutions below, BEFORE CREATING A GITHUB ISSUE.**
 
 ## Oculess does not show up in "Unknown Sources"!
-Once device owner is enabled, Oculess can be found under "**Managed Apps**" or "**Company Managed**" instead. 
+Once device owner is enabled, Oculess can be found under "**Managed Apps**", "**For Work**", or "**Company Managed**" instead. 
 
 This was noted before you set Oculess as device owner. You might want to look through the [README](https://github.com/basti564/Oculess/blob/main/README.md) again.
 
